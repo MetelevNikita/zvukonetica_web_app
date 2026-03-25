@@ -1,0 +1,41 @@
+.btn {
+
+  width: max-content;
+  height: 39px;
+  border-radius: 100px;
+;
+  /*  */
+
+  background: #ECCF94;
+
+  /*  */
+
+  padding-left: 30px;
+  padding-right: 30px;
+
+  /*  */
+
+  cursor: pointer;
+
+
+
+}
+
+.btn_text {
+
+  height: 39px;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*  */
+
+  color: #3A0F04;
+
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+}

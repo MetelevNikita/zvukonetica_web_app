@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container, Row, Col} from 'react-bootstrap'
 
-const geistMono = Geist_Mono({
+// components
+
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
+
+
+
+const montserrat = Montserrat({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
@@ -23,8 +28,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${montserrat.variable}`}>
+      <body>
+          <Container fluid style={{padding: 0}}>
+            <Header />
+            {children}
+            <Footer />
+          </Container>
+          </body>
     </html>
   );
 }
