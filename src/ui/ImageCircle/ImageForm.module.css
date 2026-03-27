@@ -1,0 +1,15 @@
+.image_bg {
+  width: 320px;
+  height: 320px;
+  background-image: url('/app/module_block/circle.png');
+  background-repeat: no-repeat;   /* не повторять */
+  background-size: cover;         /* заполнить блок */
+  background-position: center;
+
+  /*  */
+
+
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}

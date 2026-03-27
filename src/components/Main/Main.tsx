@@ -55,7 +55,7 @@ const Main: FC = () => {
   return (
 
     <Container>
-      <Row className='d-flex flex-row justify-content-center align-items-center wv-100'>
+      <Row className='d-flex flex-row justify-content-center align-items-center wv-100 mt-4 mb-4'>
 
         <Col className={'d-flex flex-column justify-content-between'} style={{height: 528}} md={6}>
 

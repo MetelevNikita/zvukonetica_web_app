@@ -1,0 +1,70 @@
+.recieve_block_bg {
+  width: 100%;
+  height: 156px;
+
+  /*  */
+
+  border-radius: 24px;
+  background: var(--2, linear-gradient(90deg, #8A3C22 23.56%, #350C02 100%));
+}
+
+/*  */
+
+.recieve_block_num {
+  width: 59px;
+  height: 92px;
+
+  /*  */
+
+  color: #F5F2EB;
+  text-align: center;
+  font-family: Forum;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 80px; /* 177.778% */
+  letter-spacing: 2.25px;
+  text-transform: uppercase;
+}
+
+/*  */
+
+.recieve_block_wrapper {
+  margin-top: 20px;
+  width: 100%;
+  height: 156px;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.recieve_block_title {
+  width: 795.04px;
+  height: 43px;
+
+  /*  */
+
+  color: #F5F2EB;
+  font-feature-settings: 'liga' off, 'clig' off;
+  font-family: Forum;
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 93.333% */
+}
+
+.recieve_block_subtitle {
+
+  width: 926.337px;
+  height: 56px;
+
+  /*  */
+
+  color: #F5F2EB;
+  font-feature-settings: 'liga' off, 'clig' off;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 155.556% */
+  
+}
