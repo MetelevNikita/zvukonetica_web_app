@@ -24,10 +24,6 @@ import moduleJson from '../../json/module.json' assert { type: 'json' }
 
 const Modules: FC = () => {
 
-
-  console.log(moduleJson)
-
-
   return (
     <Container>
       

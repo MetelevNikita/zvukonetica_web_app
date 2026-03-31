@@ -73,7 +73,7 @@ const Footer: FC = () => {
 
 
   return (
-    <div style={{width: '100%', height: '164px', background: '#280101'}} className={'mt-3 mb-3'} >
+    <div style={{width: '100%', height: '164px', background: '#280101'}} className={'mt-3'} >
 
       <Container>
         <Row className='d-flex flex-row justify-content-center align-items-center wv-100'>

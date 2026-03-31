@@ -25,10 +25,6 @@ interface moduleBlockProps {
 
 const ModuleBlock: FC<moduleBlockProps> = ({ title, subtitle, list, image, style}) => {
 
-
-  console.log(image)
-
-
   return (
 
     <Container>

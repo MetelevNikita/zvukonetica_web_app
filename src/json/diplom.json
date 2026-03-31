@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Диплом 1",
+    "image": "/app/diplom/1.png"
+  },
+  {
+    "id": 2,
+    "title": "Диплом 2",
+    "image": "/api/uploads/diplom/2.png"
+  },
+  {
+    "id": 3,
+    "title": "Диплом 3",
+    "image": "/api/uploads/diplom/3.png"
+  },
+  {
+    "id": 4,
+    "title": "Диплом 4",
+    "image": "/api/uploads/diplom/4.png"
+  },
+  {
+    "id": 5,
+    "title": "Диплом 5",
+    "image": "/api/uploads/diplom/5.png"
+  },
+  {
+    "id": 6,
+    "title": "Диплом 6",
+    "image": "/api/uploads/diplom/6.png"
+  }
+]

@@ -9,6 +9,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   background: #350C02 url('/app/bg/bg_light.png') center/cover no-repeat !important;
+  cursor: pointer;
 }
 
 body {

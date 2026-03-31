@@ -1,0 +1,45 @@
+.news_block_title {
+
+  margin-top: 16px;
+
+  /*  */
+
+  width: 345.695px;
+
+  /*  */
+
+  color: #F5F2EB;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 133%; /* 26.6px */
+}
+
+.news_block_line {
+
+  margin-top: 15px;
+
+  /*  */
+
+  width: 359px;
+  height: 1px;
+  background: white;
+}
+
+.news_block_description {
+
+  margin-top: 13px;
+
+  /*  */
+
+  width: 359px;
+  height: 92px;
+
+  /*  */
+
+  color: #F5F2EB;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 160%; /* 28.8px */
+}

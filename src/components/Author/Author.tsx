@@ -1,6 +1,7 @@
 'use client'
 
 import { FC } from 'react'
+import { motion } from "motion/react"
 import Image from 'next/image'
 
 // style
@@ -20,11 +21,13 @@ import MainTitle from '@/ui/mainTitle/mainTitle'
 
 import photo from '@/../public/app/author/photo_author.png'
 
-// 
+// json
+
+import diplomJson from '@/json/diplom.json' assert { type: 'json' }
 
 
 
-const Author = () => {
+const Author: FC = () => {
   return (
 
     <Container>
@@ -32,7 +35,6 @@ const Author = () => {
       <Row>
 
         <Col md={6} className='d-flex justify-content-start'>
-
             <div className={styles.author_title_wrapper}>
               <div className={styles.author_title}>
                 Эксперт в области креативных технологий управления, развития человеческого потенциала и инновационных образовательных методов.
@@ -44,23 +46,43 @@ const Author = () => {
                 Получила положительные отзывы и рекомендации от руководителей государственных и муниципальных органов власти, а также представителей бизнеса, что подтверждает высокий уровень профессионального мастерства и деловой репутации.
               </div>
             </div>
-
         </Col>
 
 
         <Col md={6} className='d-flex justify-content-end'>
-
             <div className={styles.author_photo_bg}>
               <Image className={styles.author_photo} width={472} height={454} src={photo} alt={'photo'} />
             </div>
-
         </Col>
         
+      </Row>
 
 
+      {/* diplom */}
 
+      <Row className='mt-3 mb-5'>
+
+        
+          {
+            (diplomJson.length > 0) && diplomJson.map((item, index) => {
+              return (
+                <Col md={2} key={item.id} className={`d-flex justify-content-center`}>
+                  <motion.div
+                    initial={{ scale: 1 }}
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <Image width={170} height={198} src={item.image} alt={item.title} />
+                  </motion.div>
+                </Col>
+              )
+            })
+          }
 
       </Row>
+
+
+
+      {/* diplom */}
 
 
   

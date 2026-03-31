@@ -10,16 +10,17 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 // components
 import Main from '@/components/Main/Main'
+import Participants from '@/components/Participants/Participants'
 import Question from '@/components/Question/Question'
 import Modules from '@/components/Modules/Modules'
 import Receive from '@/components/Receive/Receive'
 import Author from '@/components/Author/Author'
 import Enjoy from '@/components/Enjoy/Enjoy'
+import Articles from '@/components/Articles/Articles'
 
 
 // 
 
-import MainTitle from '@/ui/mainTitle/mainTitle'
 
 const page: FC = () => {
   return (
@@ -28,6 +29,12 @@ const page: FC = () => {
       <Row className='mt-4 mb-4'>
         <Col>
           <Main />
+        </Col>
+      </Row>
+
+      <Row>
+        <Col>
+          <Participants />
         </Col>
       </Row>
 
@@ -71,6 +78,13 @@ const page: FC = () => {
 
           <Enjoy />
         
+        </Col>
+      </Row>
+
+
+      <Row>
+        <Col>
+          <Articles />
         </Col>
       </Row>
 
