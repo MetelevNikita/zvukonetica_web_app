@@ -12,7 +12,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 // json
 
-import receiveJson from '@/json/receive.json' assert { type: 'json' }
+import receiveJson from '@/json/receive.json' with { type: 'json' }
 
 // components
 

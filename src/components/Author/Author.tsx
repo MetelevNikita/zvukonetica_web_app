@@ -23,7 +23,7 @@ import photo from '@/../public/app/author/photo_author.png'
 
 // json
 
-import diplomJson from '@/json/diplom.json' assert { type: 'json' }
+import diplomJson from '@/json/diplom.json' with { type: 'json' }
 
 
 

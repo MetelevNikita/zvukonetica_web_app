@@ -1,0 +1,72 @@
+.steps_program_container {
+  width: 100%;
+  height: 394px;
+
+  /*  */
+
+  border-radius: 8px;
+  border: 1px solid #E8CE99;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+
+}
+
+.steps_program_wrapper {
+  padding: 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*  */
+
+.steps_program_title {
+  color: #F5F2EB;
+  font-family: Forum;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+
+  /*  */
+
+  margin-bottom: 10px;
+}
+
+.steps_program_subtitle {
+  color: #F5F2EB;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px; /* 125% */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/*  */
+
+.steps_program_list_container {
+
+  padding-left: 10px;    /* чтобы маркеры не обрезались */
+}
+
+.steps_program_list_item {
+  list-style: disc;
+  margin-top: 5px;
+  margin-bottom: 7px;
+  color: #F5F2EB;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px; /* 143.75% */
+  font-variant: small-caps;
+  letter-spacing: 0.8px;
+}

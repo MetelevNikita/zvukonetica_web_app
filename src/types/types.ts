@@ -20,3 +20,13 @@ export type infoType = {
   title: string,
   icon: StaticImageData
 }
+
+
+// newsType
+
+export type newsType = {
+  id: number | string,
+  title: string,
+  description: string,
+  image: string
+} 

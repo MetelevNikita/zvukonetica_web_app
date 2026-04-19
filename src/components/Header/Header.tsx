@@ -46,43 +46,43 @@ const Header: FC = () => {
       id: 1,
       label: 'Автор',
       value: 'author',
-      link: 'https://google.com'
+      link: '/author'
     },
     {
       id: 2,
       label: 'О методике',
       value: 'about',
-      link: ''
+      link: '/about'
     },
     {
       id: 3,
       label: 'О курсе',
-      value: 'curs',
-      link: ''
+      value: 'well',
+      link: '/well'
     },
     {
       id: 4,
       label: 'Программа',
       value: 'program',
-      link: ''
+      link: '/program'
     },
     {
       id: 5,
       label: 'Фотогалеря',
       value: 'photo',
-      link: ''
+      link: '/gallery'
     },
     {
       id: 6,
       label: 'Статьи',
       value: 'links',
-      link: ''
+      link: '/article'
     },
     {
       id: 7,
       label: 'Контакты',
       value: 'program',
-      link: ''
+      link: '/contacts'
     },
     
   ]
@@ -186,7 +186,7 @@ const Header: FC = () => {
                         whileHover={{color: '#ECCF94'}}
                           className={styles.menu_text}
                           onClick={() => {
-                            window.open(item.link, "_blank", "noopener,noreferrer")
+                            router.push(item.link)
                           }}>{item.label}</motion.div>
                       </Col>
             })

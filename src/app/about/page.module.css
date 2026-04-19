@@ -1,0 +1,32 @@
+.about_title {
+  width: 320px;
+  height: 68px;
+
+  /*  */
+
+  color: #F5F2EB;
+  text-align: center;
+  font-family: Forum;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 80px; /* 177.778% */
+  letter-spacing: 2.25px;
+  text-transform: uppercase;
+}
+
+.about_description {
+
+  width: 1116px;
+
+  /*  */
+
+  color: #F5F2EB;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px; /* 138.889% */
+  font-variant: small-caps;
+  letter-spacing: 0.9px;
+}

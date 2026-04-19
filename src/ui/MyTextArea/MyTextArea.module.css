@@ -1,0 +1,46 @@
+.area_container {}
+
+.area_title {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 97%; /* 13.58px */
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+
+    /*  */
+
+    margin-bottom: 5px;
+}
+
+.area_text {
+  width: 100%;
+  min-height: 272px;
+
+  /*  */
+
+  padding-top: 20px;
+  padding-left: 10px;
+  
+  /*  */
+
+  border-radius: 10px;
+  border: 1px solid #FFF;
+  background: linear-gradient(113deg, rgba(30, 79, 198, 0.00) 1.67%, rgba(0, 176, 225, 0.00) 100%);
+  outline: none;
+
+
+  /*  */
+
+
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 97%; /* 13.58px */
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}

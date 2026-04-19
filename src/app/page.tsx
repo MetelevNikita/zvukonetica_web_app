@@ -89,13 +89,6 @@ const page: FC = () => {
       </Row>
 
 
-      {/* question */}
-
-      <Row>
-        <Col>
-          <Question />
-        </Col>
-      </Row>
     </Container>
   )
 }

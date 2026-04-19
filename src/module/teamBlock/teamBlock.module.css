@@ -1,0 +1,40 @@
+.team_block_image {
+  width: 346.415px;
+  height: 347.67px;
+  ;
+
+  /*  */
+
+  border-radius: 50%;
+}
+
+.team_block_info_title {
+
+  width: 360px;
+
+  /*  */
+
+  color: #F5F2EB;
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 27px; /* 135% */
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+
+.team_block_info_direction {
+  color: #F5F2EB;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 27px; /* 150% */
+  font-variant: small-caps;
+  letter-spacing: 0.9px;
+
+  /*  */
+
+  white-space: pre-line;
+}

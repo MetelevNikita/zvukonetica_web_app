@@ -9,8 +9,6 @@ import styles from './newsBlock.module.css'
 // bootstrap
 
 import { Container, Row, Col } from 'react-bootstrap'
-import { title } from 'process'
-
 
 
 interface newsBlockProps {
@@ -21,12 +19,7 @@ interface newsBlockProps {
 
 
 const newsBlock: FC<newsBlockProps> = ({ title, description, image }) => {
-
-
-  console.log(description)
-
   const descriptionShort = description.split(' ').slice(0, 20).join(' ') + '...'
-
 
   return (
     <Container>

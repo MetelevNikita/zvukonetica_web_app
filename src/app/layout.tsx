@@ -9,6 +9,7 @@ import {Container, Row, Col} from 'react-bootstrap'
 
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import Question from "@/components/Question/Question";
 
 
 
@@ -31,9 +32,10 @@ export default function RootLayout({
     <html lang="en" className={`${montserrat.variable}`}>
       <body>
           <Container fluid style={{padding: 0}}>
-            <Header />
-            {children}
-            <Footer />
+              <Header />
+                  {children}
+                <Question />
+              <Footer />
           </Container>
           </body>
     </html>

@@ -1,0 +1,77 @@
+.steps_container {
+  width: 380px;
+  height: 95px;
+
+
+
+  /*  */
+
+  border-radius: 8px;
+  opacity: 1;
+  background: linear-gradient(202deg, #360B00 -2.18%, #E8CE99 132.75%);
+}
+
+.steps_wrapper {
+
+    width: 360px;
+  height: 95px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.steps_item_num {
+
+  width: 32px;
+  height: 60px;
+
+  /*  */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  /*  */
+
+  color: #F5F2EB;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 19px; /* 38% */
+  font-variant: small-caps;
+  letter-spacing: 2.5px;
+}
+
+.steps_item_title {
+
+  /*  */
+
+  margin-left: 10px;
+
+  /*  */
+
+  width: 263px;
+
+
+  /*  */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  /*  */
+
+  color: #F5F2EB;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px; /* 118.75% */
+  font-variant: small-caps;
+  letter-spacing: 0.8px;
+}

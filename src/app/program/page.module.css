@@ -1,0 +1,63 @@
+.program_title {
+  width: 320px;
+  height: 68px;
+
+  /*  */
+
+  color: #F5F2EB;
+  text-align: center;
+  font-family: Forum;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 80px; /* 177.778% */
+  letter-spacing: 2.25px;
+  text-transform: uppercase;
+}
+
+
+.program_module_rules_container {
+    width: 359px;
+    height: 976px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    /*  */
+
+    border-radius: 8px;
+    border: 1px solid #E8CE99;
+
+    /*  */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(135, 118, 85, 0.6) url('/app/program/Asset 1@3x-8 6.png') center/cover no-repeat;
+}
+
+
+.program_module_rules_title {
+  width: 356px;
+  height: 164px;
+
+  /*  */
+
+  color: #FFF;
+  text-align: center;
+  font-feature-settings: 'liga' off, 'clig' off;
+  font-family: Forum;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 33px; /* 110% */
+
+  /*  */
+
+  white-space: pre-line;
+}
+
+.program_module_rules_button_container {
+  margin-top: 30px;
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Филиппова Нина Мироновна",
+    "direction": "Автор метода,\nавтор-ведущая курса",
+    "image": "/app/program/team/person_one.png"
+  },
+
+  {
+    "id": 2,
+    "name": "Низамова Альмира Римовна",
+    "direction": "Директор проекта,\nкуратор программы",
+    "image": "/app/program/team/person_two.jpg"
+  },
+
+  {
+    "id": 3,
+    "name": "Филиппов Иван Вячеславович",
+    "direction": "Консультант программы",
+    "image": "/app/program/team/person_three.jpg"
+  }
+]

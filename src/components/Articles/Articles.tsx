@@ -16,7 +16,7 @@ import NewsBlock from '@/module/newsBlock/newsBlock'
 
 // json!!!
 
-import articlesData from '@/json/news.json' assert { type: 'json' }
+import articlesData from '@/json/news.json' with { type: 'json' }
 import MyButton from '@/ui/MyButton/MyButton'
 
 
@@ -38,7 +38,7 @@ const Articles: FC = () => {
               whileHover={{scale: 0.95}}
               whileTap={{scale: 1.05}}
               onClick={() => {
-                router.push(`/articles/${article.id}`)
+                router.push(`/article/${article.id}`)
               }}>
                 <NewsBlock
                     title={article.title}
