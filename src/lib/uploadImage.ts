@@ -7,13 +7,33 @@ export async function uploadImage (data: string, filename: string) {
 
     const uniqId = `article_${Date.now()}`
 
-    if (!data) {
+    if (!data || typeof data !== 'string' || !filename) {
       return {
         success: false,
         message: `Буффер не может быть пустым`,
         data: null
       }
     }
+
+    const matches = data.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/)
+
+
+
+    if (!matches || matches.length !== 3) {
+      throw new Error('Неверный формат Base64')
+    }
+
+    const mimeType = matches[1]
+
+    const ext = mimeType.split('/')[1]
+
+    if (!['jpeg', 'jpg', 'png', 'gif'].includes(ext)) {
+      throw new Error('Недопустимый тип файла. Разрешены только JPEG, PNG и GIF.')
+    }
+
+    const base64Data = matches[2]
+
+    console.log(`Получен файл с MIME-типом: ${mimeType}`)
 
 
     const uploadFolder = path.resolve(process.cwd(), 'src', 'app', 'uploads')
@@ -40,15 +60,17 @@ export async function uploadImage (data: string, filename: string) {
 
     //
 
-    const filePath = path.resolve(endFolder, filename)
-    const bufferImage = Buffer.from(data)
+    const filePath = path.resolve(endFolder, `${filename}.${ext}`)
+    const bufferImage = Buffer.from(base64Data, 'base64')
+
+    const url = `/uploads/article/${uniqId}/${filename}.${ext}`
 
     await fs.promises.writeFile(filePath, bufferImage)
 
     return {
         success: true,
         message: `ФОТО УСПЕШНО СОХРАНЕНО`,
-        data: filePath
+        data: url
     }
 
     

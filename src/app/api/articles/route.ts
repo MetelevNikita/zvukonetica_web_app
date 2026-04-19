@@ -1,6 +1,10 @@
 import { NextResponse, NextRequest } from "next/server";
 import { prisma } from "@/lib/prisma";
 
+// lib
+
+import { uploadImage } from "@/lib/uploadImage";
+
 // JSON
 
 import newsJSON from '@/json/news.json' with {type: 'json'}
@@ -50,30 +54,32 @@ export const POST = async (req: NextRequest) => {
 
     const { title, description, image } = await req.json()
 
-    if (!title || !description || !image) {
 
-      return NextResponse.json({
-        success: false,
-        message: `Пожалуйста, заполните все поля`,
-        data: null
-      })
-    }
+    const imageUploadResult = await uploadImage(image, `article_${Date.now()}`)
+    console.log('Результат загрузки изображения:', imageUploadResult)
+
+    // const newArticle = await prisma.articles.create({
+    //   data: {
+    //     title,
+    //     description,
+    //     image
+    //   }
+    // })
+
+    // console.log(`Новость успешно создана: ${newArticle.id}`)
+
+    // return NextResponse.json({
+    //   success: true,
+    //   message: `Новость успешно создана`,
+    //   data: newArticle
+    // })
 
 
-    const newArticle = await prisma.articles.create({
-      data: {
-        title,
-        description,
-        image
-      }
-    })
-
-    console.log(`Новость успешно создана: ${newArticle.id}`)
 
     return NextResponse.json({
       success: true,
       message: `Новость успешно создана`,
-      data: newArticle
+      data: 'data'
     })
 
 

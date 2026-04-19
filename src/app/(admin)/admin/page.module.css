@@ -13,3 +13,17 @@
   letter-spacing: 2.25px;
   text-transform: uppercase;
 }
+
+
+.converting {
+  height: 68px;
+
+  /*  */
+
+  color: #F5F2EB;
+  text-align: left;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 80px; /* 177.778% */
+}
