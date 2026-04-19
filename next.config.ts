@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
 
   experimental: {
     serverActions: {
-      bodySizeLimit: '10mb', // Увеличиваем лимит для Base64
+      bodySizeLimit: '100mb', // Увеличиваем лимит для Base64
     },
   }
 };

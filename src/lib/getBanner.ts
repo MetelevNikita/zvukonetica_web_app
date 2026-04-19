@@ -3,10 +3,10 @@ import { ins } from "motion/react-client"
 export async function getBanner () {
   try {
 
-    const response = await fetch('/api/uploads/banner/banner.png', {
+    const response = await fetch('/api/banner', {
       method: 'GET',
       headers: {
-        'Content-Type': 'image/png'
+        'Content-Type': 'application/json'
       }
     })
 
@@ -14,10 +14,9 @@ export async function getBanner () {
       throw new Error('Failed to fetch news banner')
     }
 
-    const blob = await response.blob()
-    const imageUrl = URL.createObjectURL(blob)
-    console.log(imageUrl)
-    return imageUrl
+    const data = await response.json()
+    console.log(data)
+    return data.data[0].image
     
   } catch (error: Error | unknown) {
 

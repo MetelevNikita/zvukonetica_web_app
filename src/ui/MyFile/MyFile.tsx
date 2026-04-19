@@ -8,7 +8,6 @@ import styles from './MyFile.module.css'
 // components
 
 import MyButton from '../MyButton/MyButton'
-import { div } from 'motion/react-client'
 
 
 interface MyFileProps {
@@ -18,7 +17,7 @@ interface MyFileProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const MyFile: FC<MyFileProps> = ({ data, onChange }) => {
+const MyFile: FC<MyFileProps> = ({ data, onChange, name }) => {
 
   console.log('Данные в MyFile:', data)
 
@@ -48,9 +47,9 @@ const MyFile: FC<MyFileProps> = ({ data, onChange }) => {
 
     <div className={styles.my_file_wrapper}>
 
-      <label htmlFor='fileInput' className={styles.my_file}>
+      <label htmlFor={name} className={styles.my_file}>
         <MyButton text={'Загрузить файл'} onClick={() => {}} />
-        <input id='fileInput' type='file' className={styles.file_input} onChange={onChange}/>
+        <input id={name} type='file' className={styles.file_input} onChange={onChange}/>
         <span className={styles.file_span}>{data?.image?.name || 'Файл не выбран'}</span>
       </label>
 

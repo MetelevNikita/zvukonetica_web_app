@@ -18,7 +18,7 @@ import rulesImage from '@/../public/app/author_page/author_banner_2.png'
 
 // functions
 
-import { getNewsBanner } from '@/components/OpenArticle/OpenArticle'
+import { getBanner } from '@/lib/getBanner'
 
 // json
 
@@ -33,7 +33,7 @@ const page: FC = () => {
 
   useEffect(() => {
     const fetchBanner = async () => {
-      const url = await getNewsBanner()
+      const url = await getBanner()
       if (url) {
         setBannerUrl(url)
       }

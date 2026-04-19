@@ -1,38 +1,35 @@
 import { NextResponse, NextRequest } from "next/server";
-import { prisma } from "@/lib/prisma";
+
+// 
+
+import { prisma } from '@/lib/prisma'
 
 // lib
 
 import { uploadImage } from "@/lib/uploadImage";
 
-// JSON
-
-import newsJSON from '@/json/news.json' with {type: 'json'}
-
-// 
 
 export const GET = async () => {
-
   try {
 
-    const allArticles = await prisma.articles.findMany()
+    const banner = await prisma.banner.findMany()
 
-    console.log(allArticles)
-
-    if (!allArticles) {
+    if (!banner) {
       return NextResponse.json({
         success: true,
-        message: `Новости получены. пустой массив`,
-        data: []
+        message: `Рекламный баннер получен. Путой массив`,
+        data: null
       })
     }
 
+
     return NextResponse.json({
         success: true,
-        message: `Новости получены`,
-        data: allArticles
+        message: `Рекламный баннер получен`,
+        data: banner
     })
 
+    
   } catch (error: Error | unknown) {
     
     if (error instanceof Error) {
@@ -57,62 +54,67 @@ export const GET = async () => {
 
     
   }
-
 }
 
 
-export const POST = async (req: NextRequest) => {
+
+export const POST = async (req: NextRequest, res: NextResponse) => {
+
   try {
 
+    const data = await req.formData()
 
-    const data = await req.formData() as FormData
-    
+    console.log(data)
 
-    const title = data.get('title') as string
-    const description = data.get('description') as string
     const image = data.get('image') as File
 
-
-    const imageUploadResult = await uploadImage(image, `article_${Date.now()}`, 'articles', 360)
-    console.log('Результат загрузки изображения:', imageUploadResult)
-
-    if (!imageUploadResult?.success) {
+    if (!image) {
       return NextResponse.json({
         success: false,
-        message: `Оишкба создания новости`,
+        message: `Пришло путое изображение`,
         data: null
       })
     }
 
-    const newArticle = await prisma.articles.create({
+
+    const uploadImageHandler = await uploadImage(image, `banner_${Date.now()}`, 'banner', 1120)
+    console.log(uploadImageHandler)
+
+
+    if (!uploadImageHandler?.success) {
+      return NextResponse.json({
+        success: false,
+        message: `Баннен не добавлен ошибка ${uploadImageHandler?.message}`,
+        data: null
+      })
+    }
+
+
+    const newBanner = await prisma.banner.create({
       data: {
-        title,
-        description,
-        image: imageUploadResult.data as string
+        image: uploadImageHandler.data as string
       }
     })
 
-    console.log(`Новость успешно создана: ${newArticle.id}`)
+    console.log(`Баннер успешно добавлен: ${newBanner.id}`)
 
     return NextResponse.json({
       success: true,
-      message: `Новость успешно создана`,
-      data: newArticle
+      message: `Баннен успешно добавлен`,
+      data: newBanner.id
     })
 
 
-
-  
     
   } catch (error: Error | unknown) {
     
     if (error instanceof Error) {
 
-      console.error(`Оишкба создания новости ${error.message}`)
+      console.error(`Ошибка загрузки баннера ${error.message}`)
 
       return NextResponse.json({
         success: false,
-        message: `Оишкба создания новости ${error.message}`,
+        message: `Ошибка загрузки баннера ${error.message}`,
         data: null
       })
     }
@@ -128,6 +130,6 @@ export const POST = async (req: NextRequest) => {
 
     
   }
+
+
 }
-
-

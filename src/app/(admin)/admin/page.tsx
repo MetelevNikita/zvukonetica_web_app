@@ -18,57 +18,51 @@ import MyFile from '@/ui/MyFile/MyFile'
 
 const page: FC = () => {
 
-  let [article, setArticle] = useState<any>({})
-  const [base64Image, setBase64Image] = useState<string | null>(null)
-  const [convertedImage, setConvertedImage] = useState<Boolean>(true)
+  const [article, setArticle] = useState<any>({})
+  const [banner, setBanner] = useState<any>({})
 
 
 
-  useEffect(() => {
 
-    if (!article.image) {
-      console.log('нет файла')
-      return
-    }
+  async function handleNewBanner (banner: {image: string}): Promise<{ success: boolean; message: string } | Error> {
+    try {
 
-    console.log(`Началась обработка фотографии ${article.image.name}`)
-
-    setConvertedImage(true)
-
-    const reader = new FileReader()
-    reader.onload = (e) => {
-      const fileContent = e.target?.result
-
-      if (typeof fileContent === 'string') {
-        console.log('Файл успешно прочитан и преобразован в base64')
-        setConvertedImage(false)
-      } else {
-        console.error('Ошибка при чтении файла: результат не является строкой')
-        return
+      if (!banner.image) {
+        alert('Пожалуйста, заполните все поля и загрузите изображение.')
+        return {
+          success: false,
+          message: 'Пожалуйста, заполните все поля и загрузите изображение.'
+        }
       }
-      setBase64Image(fileContent || null)
+
+      const formData = new FormData()
+      formData.append('image', banner.image)
+
+      console.log('Данные для отправки:', ...formData)
+
+      const response = await fetch('/api/banner', {
+        method: 'POST',
+        body: formData
+      })
+
+      const data = await response.json()
+      console.log('Ответ от сервера:', data)
+
+      return { success: true, message: 'Баннер успешно сохранен' }
+
+    } catch (error: Error | unknown) {
+      if (error instanceof Error) {
+        console.error('Ошибка при отправке данных:', error.message)
+        return { success: false, message: error.message }
+      } else {
+        console.error('Неизвестная ошибка:', error)
+        return { success: false, message: 'Неизвестная ошибка' }
+      }
     }
-
-    reader.onerror = (e) => {
-      console.error('Ошибка при чтении файла:', e)
-      setBase64Image(null)
-      setConvertedImage(false)
-    }
-
-    reader.onabort = () => {
-      console.error('Чтение файла было прервано')
-      setBase64Image(null)
-      setConvertedImage(false)
-    }
-
-    reader.readAsDataURL(article.image)
-
-  }, [article.image])
+  }
 
 
-
-
-  async function handleNewArticle (article: {title: string, description: string, image: string}): Promise<{ success: boolean; message: string } | Error> {
+    async function handleNewArticle (article: {title: string, description: string, image: string}): Promise<{ success: boolean; message: string } | Error> {
     try {
 
       if (!article.title || !article.description || !article.image) {
@@ -79,28 +73,18 @@ const page: FC = () => {
         }
       }
 
-      if (!base64Image && convertedImage) {
-        alert('Изображение обрабатывается. Пожалуйста, подождите несколько секунд и попробуйте снова.')
-        return {
-          success: false,
-          message: 'Изображение обрабатывается. Пожалуйста, подождите несколько секунд и попробуйте снова.'
-        }
-      }
+      const formData = new FormData()
+      formData.append('title', article.title)
+      formData.append('description', article.description)
+      formData.append('image', article.image)
+
+      console.log('Данные для отправки:', ...formData)
 
 
-      if (!base64Image && article.image) {
-        throw new Error('Изображение еще не обработано. Подождите несколько секунд и попробуйте снова.')
-      }
-
-      let currentArticle = { ...article, image: base64Image }
-      console.log('Данные для отправки:', currentArticle)
 
       const response = await fetch('/api/articles', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(currentArticle)
+        body: formData
       })
 
       const data = await response.json()
@@ -123,11 +107,6 @@ const page: FC = () => {
       }
     }
   }
-
-
-
-
-
 
 
 
@@ -169,21 +148,53 @@ const page: FC = () => {
 
 
         <Col>
-              <MyFile data={article} name={''} placeholder={''} onChange={(e) => {setArticle({ ...article, ['image']: e.target.files?.[0] as File  })}} />
+              <MyFile data={article} name={'article'} placeholder={''} onChange={(e) => {setArticle({ ...article, ['image']: e.target.files?.[0] as File  })}} />
         </Col>
 
       </Row>
 
       <Row className='mt-5'>
           <Col>
+            <MyButton text={'Сохранить'} onClick={() => {
+              handleNewArticle(article)
+            }} />
+        </Col>
+      </Row>
 
-          {
-            (convertedImage) ? (
-              <div className={styles.converting}>Изображение пока не загружено</div>
-            ) : (<MyButton text={'Сохранить'} onClick={async () => {
-              await handleNewArticle(article)
-            }} />)
-          }
+
+      {/* BANNER */}
+
+      <Row className='mb-5'>
+        <Col>
+
+          <div className={styles.admin_title}>Баннер</div>
+        
+        </Col>
+      </Row>
+
+
+      <Row className='mb-5'>
+        <Col>
+
+          <div className={styles.admin_info}>*Баннер должен быть размеров 1120x400</div>
+        
+        </Col>
+      </Row>
+
+
+      <Row className='d-flex flex-column'>
+
+        <Col>
+              <MyFile data={banner} name={'banner'} placeholder={''} onChange={(e) => {setBanner({ ...banner, ['image']: e.target.files?.[0] as File  })}} />
+        </Col>
+
+      </Row>
+
+      <Row className='mt-5'>
+          <Col>
+            <MyButton text={'Сохранить'} onClick={() => {
+              handleNewBanner(banner)
+            }} />
         </Col>
       </Row>
     </Container>

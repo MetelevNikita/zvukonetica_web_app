@@ -1,77 +1,79 @@
 import fs from 'fs'
 import path from 'path'
 
+// 
 
-export async function uploadImage (data: string, filename: string) {
+import sharp from 'sharp'
+
+
+export async function uploadImage (data: File | any, filename: string, category: string, size: number) {
   try {
 
-    const uniqId = `article_${Date.now()}`
-
-    if (!data || typeof data !== 'string' || !filename) {
-      return {
-        success: false,
-        message: `Буффер не может быть пустым`,
-        data: null
-      }
-    }
-
-    const matches = data.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/)
+        if (!data) return
+        const ext = data?.type.split('/')[1]
 
 
+        if (!['jpeg', 'jpg', 'png', 'gif'].includes(ext)) {
+          throw new Error('Недопустимый тип файла. Разрешены только JPEG, PNG и GIF.')
+        }
 
-    if (!matches || matches.length !== 3) {
-      throw new Error('Неверный формат Base64')
-    }
+        const uniqId = `${category}_${Date.now()}`
 
-    const mimeType = matches[1]
+        if (!data || !filename || !category) {
+          return {
+            success: false,
+            message: `Буффер не может быть пустым`,
+            data: null
+          }
+        }
 
-    const ext = mimeType.split('/')[1]
-
-    if (!['jpeg', 'jpg', 'png', 'gif'].includes(ext)) {
-      throw new Error('Недопустимый тип файла. Разрешены только JPEG, PNG и GIF.')
-    }
-
-    const base64Data = matches[2]
-
-    console.log(`Получен файл с MIME-типом: ${mimeType}`)
-
-
-    const uploadFolder = path.resolve(process.cwd(), 'src', 'app', 'uploads')
-
-    if (!fs.existsSync(uploadFolder)) {
-      console.info('Папки uploads не существует, создаем')
-      fs.mkdirSync(uploadFolder, {recursive: true})
-    }
+        const arrayBuffer = await data.arrayBuffer()
+        const buffer = Buffer.from(arrayBuffer)
 
 
-    const articleFolder = path.resolve(uploadFolder, 'article')
+        const newFile = await sharp(buffer)
+          .resize(size)
+          .jpeg({ mozjpeg: true, quality: 90})
+          .toBuffer()
 
-    if (!fs.existsSync(articleFolder)) {
-      console.info('Папки articles не существует, создаем')
-      fs.mkdirSync(articleFolder, {recursive: true})
-    }
+        // 
+
+        const uploadFolder = path.resolve(process.cwd(), 'src', 'app', 'uploads')
+
+        if (!fs.existsSync(uploadFolder)) {
+          console.info('Папки uploads не существует, создаем')
+          fs.mkdirSync(uploadFolder, {recursive: true})
+        }
 
 
-    // создаем уникальную папку с фото новости
+        const Folder = path.resolve(uploadFolder, category)
 
-    const endFolder = path.resolve(articleFolder, uniqId)
-    fs.mkdirSync(endFolder, {recursive: true})
-    console.info(`Папка ${uniqId} создана`)
+        if (!fs.existsSync(Folder)) {
+          console.info('Папки articles не существует, создаем')
+          fs.mkdirSync(Folder, {recursive: true})
+        }
 
-    //
 
-    const filePath = path.resolve(endFolder, `${filename}.${ext}`)
-    const bufferImage = Buffer.from(base64Data, 'base64')
+        // создаем уникальную папку с фото новости
 
-    const url = `/uploads/article/${uniqId}/${filename}.${ext}`
+        const endFolder = path.resolve(Folder, uniqId)
+        fs.mkdirSync(endFolder, {recursive: true})
+        console.info(`Папка ${uniqId} создана`)
 
-    await fs.promises.writeFile(filePath, bufferImage)
+        //
 
-    return {
-        success: true,
-        message: `ФОТО УСПЕШНО СОХРАНЕНО`,
-        data: url
-    }
+        const filePath = path.resolve(endFolder, `${filename}.${ext}`)
+
+
+        const url = `/api/uploads/${category}/${uniqId}/${filename}.${ext}`
+
+        await fs.promises.writeFile(filePath, newFile)
+
+        return {
+            success: true,
+            message: `ФОТО УСПЕШНО СОХРАНЕНО`,
+            data: url
+        }
 
     
   } catch (error: Error | unknown) {

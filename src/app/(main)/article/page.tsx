@@ -34,7 +34,7 @@ const page: FC = () => {
 
   // 
 
-  const [news, setNews] = useState<newsType[] | []>([])
+  const [articles, setArticles] = useState<newsType[] | []>([])
   const [bannerUrl, setBannerUrl] = useState<string | null>(null)
 
   useEffect(() => {
@@ -52,10 +52,10 @@ const page: FC = () => {
 
   useEffect(() => {
     async function getAllNews () {
-      const news = await getNews()
+      const articles = await getNews()
 
-      if (!news.success) return []
-      setNews(news.data)
+      if (!articles.success) return []
+      setArticles(articles.data)
     }
 
 
@@ -106,7 +106,7 @@ const page: FC = () => {
       <Row>
 
           {
-            (news.length !== 0) && news.map((article: newsType, index: number): React.ReactNode => {
+            (articles.length !== 0) && articles.map((article: newsType, index: number): React.ReactNode => {
     
               return (
                   <Col key={index} md={4} className='mb-4'>

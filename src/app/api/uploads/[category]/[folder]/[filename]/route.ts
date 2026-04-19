@@ -3,12 +3,12 @@ import fs from 'fs'
 import path from 'path'
 
 
-export const GET = async (request: Request, { params }: { params: Promise<{ folder: string, filename: string }> }) => {
+export const GET = async (request: Request, { params }: { params: Promise<{category: string, folder: string, filename: string }> }) => {
   try {
 
-    const { folder, filename } = await params
+    const {category, folder, filename } = await params
 
-    const filePath = path.join(process.cwd(), 'src', 'app', 'uploads', 'news', folder, filename)
+    const filePath = path.join(process.cwd(), 'src', 'app', 'uploads', category, folder, filename)
 
     const image = fs.readFileSync(filePath)
    
@@ -28,6 +28,7 @@ export const GET = async (request: Request, { params }: { params: Promise<{ fold
         })
     
   } catch (error) {
+    console.log(error)
     return NextResponse.json({ error: 'Error fetching file' }, { status: 500 })
   }
 }

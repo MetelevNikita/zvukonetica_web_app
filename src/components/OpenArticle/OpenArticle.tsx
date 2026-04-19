@@ -18,28 +18,9 @@ import MyButton from '@/ui/MyButton/MyButton'
 
 //
 
-export async function getNewsBanner () {
-  try {
+import { getBanner } from '@/lib/getBanner'
 
-    const response = await fetch('/api/uploads/banner/banner.png', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'image/png'
-      }
-    })
 
-    if (!response.ok) {
-      throw new Error('Failed to fetch news banner')
-    }
-
-    const blob = await response.blob()
-    const imageUrl = URL.createObjectURL(blob)
-    return imageUrl
-    
-  } catch (error) {
-    console.error('Error fetching news banner:', error)
-  }
-}
 
 
 
@@ -49,12 +30,14 @@ interface OpenArticleProps {
 
 const OpenArticle: FC<OpenArticleProps> = ({ article }) => {
 
+
   const [bannerUrl, setBannerUrl] = useState<string>('')
   const router = useRouter()
 
   useEffect(() => {
     const fetchBanner = async () => {
-      const url = await getNewsBanner()
+      const url = await getBanner()
+      console.log(url)
       if (url) {
         setBannerUrl(url)
       }
@@ -84,7 +67,7 @@ const OpenArticle: FC<OpenArticleProps> = ({ article }) => {
       <Row className='mt-3 mb-5'>
         <Col md={12} className='d-flex justify-content-center'>
 
-        <Image className={styles.article_banner as string ?? ''} width={0} height={0} src={bannerUrl} alt="News Banner" />
+          <Image width={1920} height={109} src={bannerUrl as string} alt={'banner'} />
 
         </Col>
       </Row>
