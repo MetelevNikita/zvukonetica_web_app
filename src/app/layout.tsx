@@ -5,13 +5,6 @@ import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Row, Col} from 'react-bootstrap'
 
-// components
-
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
-import Question from "@/components/Question/Question";
-
-
 
 const montserrat = Montserrat({
   variable: "--font-geist-mono",
@@ -32,10 +25,7 @@ export default function RootLayout({
     <html lang="en" className={`${montserrat.variable}`}>
       <body>
           <Container fluid style={{padding: 0}}>
-              <Header />
                   {children}
-                <Question />
-              <Footer />
           </Container>
           </body>
     </html>

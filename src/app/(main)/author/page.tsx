@@ -22,7 +22,7 @@ import { getNewsBanner } from '@/components/OpenArticle/OpenArticle'
 
 // json
 
-import diplomsJson from '../../json/diplom.json' with {type: 'json'}
+import diplomsJson from '../../../json/diplom.json' with {type: 'json'}
 
 
 const page: FC = () => {

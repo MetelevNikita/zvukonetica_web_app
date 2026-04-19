@@ -1,0 +1,15 @@
+.admin_title {
+  height: 68px;
+
+  /*  */
+
+  color: #F5F2EB;
+  text-align: center;
+  font-family: Forum;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 80px; /* 177.778% */
+  letter-spacing: 2.25px;
+  text-transform: uppercase;
+}
