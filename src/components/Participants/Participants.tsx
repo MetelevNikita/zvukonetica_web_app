@@ -1,4 +1,6 @@
-import { FC } from 'react'
+'use client'
+
+import { FC, useEffect, useState } from 'react'
 import Image from 'next/image'
 
 // styles
@@ -13,14 +15,38 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 import img from '@/../public/app/Participants/participants_img.png'
 
-// json!!!!
-
-import reelsJson from '@/json/reels.json' assert { type: 'json' }
-
-
 // 
 
+import { getReels } from '@/lib/getReels'
+
+// components
+
+import SwiperVideo from '@/module/swiperVideo/swiperVideo'
+
 const Participants: FC = () => {
+
+
+  const [video, setVideo] = useState<any | null>(null)
+
+
+  useEffect(() => {
+
+    async function getResultVideo () {
+      const video = await getReels()
+      setVideo(video.data)
+    }
+
+    getResultVideo()
+
+  }, [])
+
+
+
+  if (!video) return (
+    <div>Loading</div>
+  )
+
+
   return (
 
     <Container className='mt-5'>
@@ -37,9 +63,7 @@ const Participants: FC = () => {
 
 
       <Row>
-
-        
-
+        <SwiperVideo video={video.data}/>
       </Row>
     </Container>
   
