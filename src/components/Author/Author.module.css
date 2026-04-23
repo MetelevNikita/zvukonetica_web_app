@@ -36,3 +36,22 @@
 .author_photo {
     transform: rotate(46.324deg);
 }
+
+/*  */
+
+.diplom_wrapper {
+  width: 170px;
+  height: 198px;
+  overflow: hidden;
+
+  /*  */
+
+  border-radius: 10px;
+}
+
+
+.diplom_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

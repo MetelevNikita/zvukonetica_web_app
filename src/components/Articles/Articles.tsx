@@ -1,6 +1,6 @@
 'use client'
 
-import { FC } from 'react'
+import { FC, useState, useEffect } from 'react'
 import { motion } from 'motion/react'
 import { useRouter } from 'next/navigation'
 
@@ -12,18 +12,37 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 import MainTitle from '@/ui/mainTitle/mainTitle'
 import NewsBlock from '@/module/newsBlock/newsBlock'
-
-
-// json!!!
-
-import articlesData from '@/json/news.json' with { type: 'json' }
 import MyButton from '@/ui/MyButton/MyButton'
+
+// type
+
+import { newsType } from '@/types/types'
+
+// fn
+
+import { getNews } from '@/lib/getNews'
 
 
 const Articles: FC = () => {
 
 
+  const [articles, setArticles] = useState<newsType[] | []>([])
   const router = useRouter()
+
+  // 
+
+
+   useEffect(() => {
+      async function getAllNews () {
+        const articles = await getNews()
+  
+        if (!articles.success) return []
+        setArticles(articles.data)
+      }
+  
+  
+      getAllNews()
+    }, [])
 
   return (
 
@@ -31,7 +50,7 @@ const Articles: FC = () => {
       <MainTitle title={'статьи'}/>
 
       <Row>
-        {articlesData.map((article, index) => (
+        {articles.map((article, index) => (
           <Col key={index} md={4} className='mb-4'>
               
             <motion.div

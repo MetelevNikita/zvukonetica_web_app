@@ -95,7 +95,7 @@ const page: FC = () => {
       <Row className='mb-2'>
         <Col md={12} className='d-flex justify-content-center mb-5'>
 
-          <Image width={1920} height={109} src={bannerUrl as string} alt={'banner'} />
+          <Image style={{borderRadius: '10px'}} width={1920} height={109} src={bannerUrl as string} alt={'banner'} />
 
         </Col>
       </Row>

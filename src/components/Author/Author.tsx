@@ -71,7 +71,12 @@ const Author: FC = () => {
                     initial={{ scale: 1 }}
                     whileHover={{ scale: 1.1 }}
                   >
-                    <Image width={170} height={198} src={item.image} alt={item.title} />
+
+                      <div className={styles.diplom_wrapper}>
+                        <img className={styles.diplom_image} src={item.image} alt="diploms" />
+                        {/* <Image  width={1500} height={500} src={item.image} alt={'diploms'}/> */}
+                      </div>
+                   
                   </motion.div>
                 </Col>
               )

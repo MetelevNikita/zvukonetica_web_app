@@ -57,7 +57,9 @@ const page: FC = () => {
 
       <Row className='mb-5'>
         <Col md={12} className='d-flex justify-content-center mb-5'>
-            <Image className={styles.author_banner} width={1920} height={109} src={bannerUrl} alt="News Banner" />
+  
+            <Image style={{borderRadius: '10px'}} width={1920} height={109} src={bannerUrl as string} alt={'banner'} />
+
         </Col>
       </Row>
 
@@ -129,7 +131,10 @@ const page: FC = () => {
               return
             }
             return <Col key={index} md={3} className='mb-5 mt-5'>
-                      <Image width={258} height={298} src={item.image} alt={'diploms'}/>
+                      <div className={styles.diplom_wrapper}>
+                        <img className={styles.diplom_image} src={item.image} alt="diploms" />
+                        {/* <Image  width={1500} height={500} src={item.image} alt={'diploms'}/> */}
+                      </div>
                     </Col>
           }) 
         }

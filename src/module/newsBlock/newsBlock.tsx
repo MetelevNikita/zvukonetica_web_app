@@ -25,7 +25,9 @@ const newsBlock: FC<newsBlockProps> = ({ title, description, image }) => {
     <Container>
       <Row className='d-flex flex-column'>
         <Col md={12} className='d-flex justify-content-center'>
-          <Image src={image} alt="News Image" width={500} height={300} />
+          <div className={styles.news_block_image_wrapper}>
+              <Image src={image} alt="News Image" width={500} height={300} />
+          </div>
         </Col>
 
         <Col>

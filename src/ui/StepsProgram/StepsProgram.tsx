@@ -24,9 +24,9 @@ const StepsProgram: FC<StepsProgramProps> = ({ title, subtitle, list }) => {
         <div className={styles.steps_program_subtitle}>{subtitle}</div>
 
         <ul className={styles.steps_program_list_container}>
-          {list.map((item: string): React.ReactNode => {
+          {list.map((item: string, index: number): React.ReactNode => {
             return (
-              <li className={styles.steps_program_list_item}>{item}</li>
+              <li key={index+1} className={styles.steps_program_list_item}>{item}</li>
             )
           })}
         </ul>

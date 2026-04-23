@@ -2,7 +2,6 @@
 
 import { FC } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { motion } from "motion/react"
 
@@ -122,8 +121,11 @@ const Header: FC = () => {
 
           <Col md={8} className='d-flex justify-content-start mt-4'>
             <motion.div
-              initial={{opacity: 0, x: 0}} animate={{opacity: 1, x: -10}} transition={{duration: 3}}
-              className={styles.logo_container}>
+              initial={{opacity: 0, x: 0}} animate={{opacity: 1, x: -10}} transition={{duration: 1}}
+              className={styles.logo_container}
+              whileHover={{scale: 1.1}}
+              onClick={() => {router.push('/')}}
+              >
                   <Image
                     width={299}
                     height={50}
@@ -159,7 +161,7 @@ const Header: FC = () => {
               <MyButton
                 text={'Написать'}
                 onClick={() => {
-                  router.push('/')
+                  router.push('/contacts')
                 }}
               />
           </Col>
