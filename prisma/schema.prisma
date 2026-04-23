@@ -13,6 +13,7 @@ datasource db {
 }
 
 
+
 model Articles {
   id Int @id @default(autoincrement())
   title String

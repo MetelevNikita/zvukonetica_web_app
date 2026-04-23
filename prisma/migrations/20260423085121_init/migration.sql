@@ -9,3 +9,13 @@ CREATE TABLE "Articles" (
 
     CONSTRAINT "Articles_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateTable
+CREATE TABLE "Banner" (
+    "id" SERIAL NOT NULL,
+    "image" TEXT NOT NULL,
+    "createAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updateAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "Banner_pkey" PRIMARY KEY ("id")
+);
