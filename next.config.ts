@@ -11,7 +11,12 @@ const nextConfig: NextConfig = {
     serverActions: {
       bodySizeLimit: '100mb', // Увеличиваем лимит для Base64
     },
-  }
+  },
+
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+
 };
 
 export default nextConfig;

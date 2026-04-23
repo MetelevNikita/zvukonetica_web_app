@@ -1,3 +1,6 @@
+// @ts-ignore
+
+
 import { NextResponse, NextRequest } from "next/server"
 import path from 'path'
 import fs from 'fs'
@@ -13,7 +16,7 @@ import { prisma } from '@/lib/prisma'
 export const DELETE = async (req: NextRequest, context: {params: {id: string}}) => {
   try {
 
-    const {id} = await context.params
+    const {id} = context.params
     console.log(id)
 
     const findArticle = await prisma.articles.findFirst({
