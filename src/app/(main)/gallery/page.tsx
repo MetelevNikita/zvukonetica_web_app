@@ -3,7 +3,7 @@
 import { FC, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import useSWR from 'swr'
+import {motion} from 'motion/react'
 
 // styles
 
@@ -42,6 +42,7 @@ const page: FC = () => {
   }
 
 
+  const [openImage, setOpenImage] = useState<string | null>(null)
   const [images, setImages] = useState<{name: string, url: string, path: string, preview: string}[] | any>(null)
   const [bannerUrl, setBannerUrl] = useState<string | null>(null)
 
@@ -70,6 +71,9 @@ const page: FC = () => {
   }, [])
 
 
+  console.log(openImage)
+
+
 
 
   if (!bannerUrl || !images) {
@@ -91,6 +95,44 @@ const page: FC = () => {
   return (
     
     <Container>
+
+
+      {
+        (openImage) && (
+          <Row>
+            <Col>
+
+              <div className={styles.open_image_container}>
+
+
+                <div className={styles.open_image_bg}>
+
+
+
+
+                  <div className={styles.open_image}>
+
+                      <motion.div
+                        whileTap={{scale: 1.1}}
+                        className={styles.close_iamge_container}
+                        onClick={() => setOpenImage(null)}
+                        >
+                        <div className={styles.close_iamge_icon}>X</div>
+                      </motion.div>
+
+                      <Image style={{borderRadius: '10px'}} width={800} height={300} src={openImage} alt={'opne_image'} />
+                  </div>
+
+                </div>
+
+              </div>
+            
+            </Col>
+          </Row>
+        )
+      }
+
+
 
       <Row className='mb-2'>
         <Col md={12} className='d-flex justify-content-center mb-5'>
@@ -119,12 +161,11 @@ const page: FC = () => {
 
         {
           images.map((item: {name: string, url: string, path: string, preview: string}, index: number): React.ReactNode => {
-            console.log(item)
             return (
               <Col key={index} className='d-flex justify-content-center gap-10 mt-3 mb-3' style={{padding: 20}}>
 
-                <div className={styles.gallery_image_container}>
-                    <Image className={styles.gallery_image} src={item.preview} alt={item.name} width={400} height={100} style={{  borderRadius: 18}}/>
+                <div style={{  borderRadius: '20px', objectFit: 'cover'}} className={styles.gallery_image_container} onClick={(e) => {setOpenImage(item.url)}}>
+                    <Image  src={item.preview} alt={item.name} width={400} height={100}/>
                 </div>
 
               </Col>

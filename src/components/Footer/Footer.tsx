@@ -116,7 +116,7 @@ const Footer: FC = () => {
               <MyButton
                 text={'Написать'}
                 onClick={() => {
-                  router.push('/')
+                  router.push('/contacts')
                 }}
               />
           </Col>
