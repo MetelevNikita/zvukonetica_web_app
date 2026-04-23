@@ -30,3 +30,14 @@ model Banner {
   createAt DateTime @default(now())
   updateAt DateTime @default(now())
 }
+
+
+model Comment {
+  id Int @id @default(autoincrement())
+  name String
+  email String
+  message String
+  politic Boolean
+  createAt DateTime @default(now())
+  updateAt DateTime @default(now())
+}

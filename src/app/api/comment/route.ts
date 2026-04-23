@@ -2,6 +2,10 @@ import { NextResponse, NextRequest } from "next/server";
 import fs from 'fs'
 import path from "path";
 
+// 
+
+import { prisma } from '@/lib/prisma'
+
 
 
 
@@ -13,7 +17,15 @@ const pathToFile = path.join(process.cwd(), 'src', 'json', 'comments.json')
 export const GET = async () => {
   try {
 
-    const comments = fs.readFileSync(pathToFile, {encoding: 'utf-8'})
+    const comments = prisma.comment.findMany()
+
+    if (!comments) {
+      return NextResponse.json({
+        success: false,
+        message: `База Комментариев пуста`,
+        data: comments
+    })
+    }
 
     return NextResponse.json({
         success: true,
@@ -48,39 +60,34 @@ export const GET = async () => {
 }
 
 
+
+
+
 export const POST = async (req: Request) => {
 
   try {
     
-    const data = await req.json()
-    if (!data) return
+    const body = await req.json()
 
+    if (!body) {
+      return NextResponse.json({
+        success: false,
+        message: `Ошикба отправки комментариев нет данных`,
+        data: null
+      })
+    }
 
-    // 
+    console.log('MESSAGE ', body)
 
-    const comments = fs.readFileSync(pathToFile, {encoding: 'utf-8'})
-
-    const array = JSON.parse(comments)
-    console.log(array)
-
-
-    const updatedComments = [...array, data]
-
-    console.log('updates ', updatedComments)
-
-
-    // send
-
-
-    fs.writeFileSync(pathToFile, JSON.stringify(updatedComments, null, 2))
-
+    await prisma.comment.create({
+      data: body
+    })
 
     return NextResponse.json({
         success: true,
         message: `Комментарий создан`,
-        data: data
+        data: body
     })
-
 
 
   } catch (error: Error | unknown) {

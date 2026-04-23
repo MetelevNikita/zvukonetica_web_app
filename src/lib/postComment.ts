@@ -1,14 +1,14 @@
-export async function postComment (message: {name: string, email: string, comment: string, politic: boolean}): Promise<any> {
+export async function postComment (comment: {name: string, email: string, message: string, politic: boolean}): Promise<any> {
   try {
 
-    console.log(message)
+    console.log(comment)
 
     const responce = await fetch('/api/comment', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
       },
-      body: JSON.stringify(message)
+      body: JSON.stringify(comment)
     })
 
     if (!responce.ok) {

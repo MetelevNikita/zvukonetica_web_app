@@ -38,10 +38,10 @@ const page: FC = () => {
 
   //
 
-  const [message, setMessage] = useState<{name: string, email: string, comment: string, politic: boolean}>({
+  const [comment, setComment] = useState<{name: string, email: string, message: string, politic: boolean}>({
     name: '',
     email: '',
-    comment: '',
+    message: '',
     politic: false
   })
 
@@ -61,10 +61,24 @@ const page: FC = () => {
   }, [])
 
 
-  async function sendCommentMessage (message: {name: string, email: string, comment: string, politic: boolean}) {
+  async function sendCommentMessage (comment: {name: string, email: string, message: string, politic: boolean}) {
     try {
 
-      const post = await postComment(message)
+      const { name, email, message, politic } = comment
+
+      if (name.trim().length < 1 || email.trim().length < 1 || message.trim().length < 1) {
+        // место под модальное окно
+        alert('Все поля должны быть заполнены')
+        return
+      }
+
+      if (!politic) {
+        alert('Для отправки сообщения вы должны согласиться с политикой конфиденциальности')
+        return 
+      }
+
+
+      const post = await postComment(comment)
       
       if (!post.success) {
         alert('Ошибка отправки комментария')
@@ -72,10 +86,10 @@ const page: FC = () => {
       }
 
       alert('Комментарий отправлен')
-      setMessage({
+      setComment({
         name: '',
         email: '',
-        comment: '',
+        message: '',
         politic: false
       })
 
@@ -136,30 +150,30 @@ const page: FC = () => {
       <Row className='d-flex justify-content-between mb-3'>
 
         <Col md={6} xs={12}>
-          <MyInput type={'text'} placeholder={'Имя'} name={'name'} value={message.name} onChange={(e) => {setMessage({...message, name: e.target.value})}} />
+          <MyInput type={'text'} placeholder={'Имя'} name={'name'} value={comment.name} onChange={(e) => {setComment({...comment, name: e.target.value})}} />
         </Col>
 
         <Col md={6} xs={12}>
-          <MyInput type={'email'} placeholder={'Почта'} name={'email'} value={message.email} onChange={(e) => {setMessage({...message, email: e.target.value})}} />
+          <MyInput type={'email'} placeholder={'Почта'} name={'email'} value={comment.email} onChange={(e) => {setComment({...comment, email: e.target.value})}} />
         </Col>
 
       </Row>
 
       <Row className='d-flex justify-content-between mb-3'>
         <Col>
-          <MyTextArea name={'comment'} placeholder={'Комментарий'} value={message.comment} onChange={(e) => {setMessage({...message, comment: e.target.value})}} />
+          <MyTextArea name={'comment'} placeholder={'Комментарий'} value={comment.message} onChange={(e) => {setComment({...comment, message: e.target.value})}} />
         </Col>
       </Row>
 
       <Row className='d-flex justify-content-between align-items-center mb-5'>
 
         <Col md={6} xs={12} className='d-flex justify-content-md-start justify-content-center'>
-          <MyCheckBox name={'politic'} text={'Я согласен с политикой конфиденциальности'} checked={message.politic} onChange={(e) => {setMessage({...message, politic: e.target.checked})}} />
+          <MyCheckBox name={'politic'} text={'Я согласен с политикой конфиденциальности'} checked={comment.politic} onChange={(e) => {setComment({...comment, politic: e.target.checked})}} />
         </Col>
 
 
          <Col md={6} xs={12} className='d-flex justify-content-md-end justify-content-center'>
-          <MyButton text={'Отправить'} onClick={async () => {await sendCommentMessage(message)}} />
+          <MyButton text={'Отправить'} onClick={async () => {await sendCommentMessage(comment)}} />
          </Col>
 
       </Row>
