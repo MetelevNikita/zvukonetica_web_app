@@ -29,7 +29,7 @@ const Question: FC = () => {
     <Container>
       <Row className='d-flex flex-row justify-content-center align-items-center wv-100 mt-4 mb-4'>
 
-        <Col className={'d-flex flex-column justify-content-between'} style={{height: 333}} md={6}>
+        <Col className={'d-flex flex-column'} style={{height: 333}} md={6}>
 
           <div className={styles.question_title}>Eсли остались вопросы</div>
           <div className={styles.question_subtitle}>Мы с радостью ответим на ваши вопросы и отправим программу мероприятия вам на почту.</div>

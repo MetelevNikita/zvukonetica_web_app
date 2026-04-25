@@ -11,19 +11,22 @@
 /*  */
 
 .recieve_block_num {
+
+  margin-left: 10px;
+
+  /*  */
+
   width: 59px;
-  height: 92px;
 
   /*  */
 
   color: #F5F2EB;
   text-align: center;
   font-family: Forum;
-  font-size: 45px;
+  font-size: clamp(22px, 4vw, 45px);
   font-style: normal;
   font-weight: 400;
   line-height: 80px; /* 177.778% */
-  letter-spacing: 2.25px;
   text-transform: uppercase;
 }
 
@@ -47,7 +50,7 @@
   color: #F5F2EB;
   font-feature-settings: 'liga' off, 'clig' off;
   font-family: Forum;
-  font-size: 34px;
+  font-size: clamp(14px, 4vw, 35px);
   font-style: normal;
   font-weight: 400;
   line-height: 28px; /* 93.333% */
@@ -55,16 +58,15 @@
 
 .recieve_block_subtitle {
 
-  width: 926.337px;
-  height: 56px;
+  width: 100%;
+  height: 76px;
 
   /*  */
 
   color: #F5F2EB;
   font-feature-settings: 'liga' off, 'clig' off;
-  font-size: 22px;
+  font-size: clamp(10px, 3vw, 22px);
   font-style: normal;
   font-weight: 400;
-  line-height: 28px; /* 155.556% */
   
 }

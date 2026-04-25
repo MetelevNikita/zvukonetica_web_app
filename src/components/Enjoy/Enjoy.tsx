@@ -21,7 +21,7 @@ const Enjoy: FC = () => {
 
         <Container fluid>
           
-          <Row className='d-flex align-items-center justify-content-center' style={{height: '276px'}}>
+          <Row className='d-flex align-items-center justify-content-center' style={{minHeight: '276px', maxHeight: '100%', padding: '0'}}>
             
             <Col md={8} className='d-flex align-items-center justify-content-center'>
               <div className={styles.enjoy_title}>

@@ -25,11 +25,11 @@ const RecieiveBlock: FC<RecieiveBlockProps> = ({ num, title, subtitle }) => {
       <Container>
         <Row>
 
-          <Col md={1} className='d-flex justify-content-center'>
+          <Col md={1} xs={1} className='d-flex justify-content-center'>
             <div className={styles.recieve_block_num}>0{num}</div>
           </Col>
 
-          <Col md={11} className='d-flex justify-content-center'>
+          <Col md={11} xs={11} className='d-flex justify-content-center'>
 
             <div className={styles.recieve_block_wrapper}>
               <div className={styles.recieve_block_title}>{title}</div>

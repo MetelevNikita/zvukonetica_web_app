@@ -59,14 +59,18 @@ const Main: FC = () => {
 
         <Col className={'d-flex flex-column justify-content-between'} style={{height: 528}} md={6}>
 
-        <div className={styles.main_logo_wrapper}>
-          <div className={styles.main_logo_text}>автор метода Н.М. Филиппова©</div>
-          <Image width={611} height={147} src={titleLogo} alt={'main_logo'}/>
-        </div>
+        <Row className='d-flex flex-column'>
 
-        <div className={styles.main_description_wrapper}>
-          <div className={styles.main_description_text}>«Ваш голос оставляет отпечаток. Вопрос только — какой именно вы хотите оставить?»</div>
-        </div>
+          <Col>
+            <div className={styles.main_logo_text}>автор метода Н.М. Филиппова©</div>
+            <Image width={611} height={147} src={titleLogo} alt={'main_logo'}/>
+          </Col>
+
+          <Col className='mt-5 mb-3'>
+            <div className={styles.main_description_text}>«Ваш голос оставляет отпечаток. Вопрос только — какой именно вы хотите оставить?»</div>
+          </Col>
+
+        </Row>
 
         <MyButton text={'Хочу присоединиться'} onClick={() => {}} />
 

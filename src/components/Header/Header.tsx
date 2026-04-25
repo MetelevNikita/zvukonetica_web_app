@@ -1,9 +1,14 @@
 'use client'
 
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { motion } from "motion/react"
+
+// 
+
+import { FaAlignJustify } from "react-icons/fa6";
+import { IoClose } from "react-icons/io5";
 
 // style
 
@@ -110,6 +115,10 @@ const Header: FC = () => {
     },
   ]
 
+  const [menuActive, setMenuActive] = useState<Boolean>(false)
+
+  console.log(menuActive)
+
 
 
   return (
@@ -119,20 +128,38 @@ const Header: FC = () => {
       <div className={styles.header_container}>
         <Row className='d-flex flex-row justify-content-center align-items-center wv-100'>
 
-          <Col md={8} className='d-flex justify-content-start mt-4'>
-            <motion.div
-              initial={{opacity: 0, x: 0}} animate={{opacity: 1, x: -10}} transition={{duration: 1}}
-              className={styles.logo_container}
-              whileHover={{scale: 1.1}}
-              onClick={() => {router.push('/')}}
-              >
-                  <Image
-                    width={299}
-                    height={50}
-                    src={logo}
-                    alt={'logo'}
-                  />
-            </motion.div>
+          <Col md={8} sm={12} xs={12} className='d-flex justify-content-md-start justify-content-center mt-4'>
+
+              <Row md={12} xs={12} className='d-flex justify-content-center'>
+
+                <Col md={12} xs={10} className='d-flex justify-content-center'>
+                    <motion.div
+                      initial={{opacity: 0, x: 0}} animate={{opacity: 1, x: -10}} transition={{duration: 1}}
+                      className={styles.logo_container}
+                      whileHover={{scale: 1.1}}
+                      onClick={() => {router.push('/')}}
+                      >
+                        <Image className={styles.logo} src={logo} alt={logo} />
+                    </motion.div>
+                </Col>
+
+                <Col xs={2} className='d-flex justify-content-end d-flex d-block d-sm-none'>
+                  <div
+                    className={styles.burger_menu_container}
+                    onClick={() => {
+                      setMenuActive(prev => !prev)
+                    }}
+                  >
+                    {
+                      (menuActive) ? <IoClose /> : <FaAlignJustify/>
+                    }
+                  </div>
+                </Col>
+
+
+
+              </Row>
+
           </Col>
 
 
@@ -169,7 +196,7 @@ const Header: FC = () => {
         </Row>
 
 
-        <Row className='d-flex justify-content-center mt-4'>
+        <Row className='d-flex justify-content- mt-4'>
             <motion.div
               initial={{scaleX: 0.6}}
               animate={{scaleX: 1}}
@@ -178,7 +205,10 @@ const Header: FC = () => {
             </motion.div>
         </Row>
 
-        <Row className='d-flex justify-content-center mt-3'>
+
+        {/* desctop */}
+
+        <Row className='d-flex justify-content-center mt-3 d-none d-md-block d-lg-none'>
 
           {
             (menu.length > 0) && menu.map((item: menuType): React.ReactNode => {
@@ -195,6 +225,49 @@ const Header: FC = () => {
           }
 
         </Row>
+
+
+        {/* mobile */}
+
+            <Row className='d-flex d-block d-sm-none'>
+              <Col md={12}>
+                <motion.div
+                  className={styles.menu_mobile_container}
+                  initial={{ left: -600 }}
+                  animate={(menuActive) ? { left: 0 } : { left: -600 }}
+                  transition={{duration: 1}}
+                >
+
+                  <div className={styles.menu_mobile_wrapper}>
+
+                      {
+                        menu.map((item) => {
+                          return (
+                            <Col>
+                              <motion.div
+                                className={styles.menu_mobile_item}
+                                whileHover={{color: '#E1BF81'}}
+                                onClick={() => {
+                                  router.push(item.link)
+                                  setMenuActive(false)
+                                }}
+                              >
+                                {item.label}
+                              </motion.div>
+                            </Col>
+                          )
+                        })
+                      }
+
+                  </div>
+
+                </motion.div>
+              </Col>
+            </Row>
+
+
+
+
       </div>
     </Container>
 

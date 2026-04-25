@@ -34,7 +34,7 @@ const Author: FC = () => {
       <MainTitle title={'автор методики'}/>
       <Row>
 
-        <Col md={6} className='d-flex justify-content-start'>
+        <Col md={6} className='d-flex justify-content-start mt-4 mb-4'>
             <div className={styles.author_title_wrapper}>
               <div className={styles.author_title}>
                 Эксперт в области креативных технологий управления, развития человеческого потенциала и инновационных образовательных методов.
@@ -49,7 +49,7 @@ const Author: FC = () => {
         </Col>
 
 
-        <Col md={6} className='d-flex justify-content-end'>
+        <Col md={6} className='d-flex justify-content-end mt-4 mb-4'>
             <div className={styles.author_photo_bg}>
               <Image className={styles.author_photo} width={472} height={454} src={photo} alt={'photo'} />
             </div>
@@ -66,7 +66,7 @@ const Author: FC = () => {
           {
             (diplomJson.length > 0) && diplomJson.map((item, index) => {
               return (
-                <Col md={2} key={item.id} className={`d-flex justify-content-center`}>
+                <Col md={2} key={item.id} className={`d-flex justify-content-center d-none d-md-block d-lg-none`}>
                   <motion.div
                     initial={{ scale: 1 }}
                     whileHover={{ scale: 1.1 }}
@@ -74,7 +74,6 @@ const Author: FC = () => {
 
                       <div className={styles.diplom_wrapper}>
                         <img className={styles.diplom_image} src={item.image} alt="diploms" />
-                        {/* <Image  width={1500} height={500} src={item.image} alt={'diploms'}/> */}
                       </div>
                    
                   </motion.div>

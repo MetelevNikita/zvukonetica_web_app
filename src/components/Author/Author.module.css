@@ -1,7 +1,6 @@
 .author_title_wrapper {
   display: flex;
-  width: 631px;
-  height: 500px;
+  width: 100%;
   flex-direction: column;
   justify-content: start;
 }
@@ -17,9 +16,9 @@
 }
 
 .author_photo_bg {
-  position: absolute;
+  /* position: absolute;
   width: 569.079px;
-  height: 373.51px;
+  height: 373.51px; */
   transform: rotate(-46.324deg);
 
   /*  */

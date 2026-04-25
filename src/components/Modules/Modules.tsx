@@ -18,7 +18,7 @@ import MainTitle from '@/ui/mainTitle/mainTitle'
 
 // json
 
-import moduleJson from '../../json/module.json' assert { type: 'json' }
+import moduleJson from '../../json/module.json' with { type: 'json' }
 
 // 
 

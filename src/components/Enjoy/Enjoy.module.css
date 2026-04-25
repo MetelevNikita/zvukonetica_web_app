@@ -19,7 +19,7 @@
 
   color: #F5F2EB;
   font-family: "Cormorant Infant";
-  font-size: 38px;
+  font-size: clamp(22px, 4vw, 38px);
   font-style: italic;
   font-weight: 400;
   line-height: normal;

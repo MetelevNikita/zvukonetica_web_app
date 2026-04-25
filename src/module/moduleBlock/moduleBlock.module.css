@@ -1,17 +1,13 @@
 .module_block_title {
-  width: 263px;
-  height: 74px;
 
   /*  */
 
   color: #F5F2EB;
   text-align: left;
   font-family: Forum;
-  font-size: 32px;
+  font-size: clamp(16px, 4vw, 32px);
   font-style: normal;
   font-weight: 400;
-  line-height: 80px; /* 250% */
-  letter-spacing: 1.6px;
   text-transform: uppercase;
 
 }
@@ -22,12 +18,12 @@
 
   /*  */
 
-  width: 842px;
+  width: 100%;
 
   /*  */
 
   color: #F5F2EB;
-  font-size: 20px;
+  font-size: clamp(16px, 4vw, 20px);
   font-style: normal;
   font-weight: 700;
   line-height: 25px; /* 125% */
