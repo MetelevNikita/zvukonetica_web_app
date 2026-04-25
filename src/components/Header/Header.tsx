@@ -157,7 +157,7 @@ const Header: FC = () => {
           </Col>
 
 
-          <Col md={2} className='d-flex justify-content-md-end justify-content-start mt-4'>
+          <Col md={2} className='d-flex justify-content-md-end justify-content-center mt-4'>
 
           <div className={styles.social_logo_container}>
 

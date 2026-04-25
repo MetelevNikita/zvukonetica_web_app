@@ -44,6 +44,8 @@
 
 .main_info_wrapper {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-right: 10px;
 
 }
@@ -51,9 +53,8 @@
 .main_info_text {
   margin-left: 10px;
   color: #F5F2EB;
-  font-size: 13px;
+  font-size: clamp(4px, 5vw, 14px);
   font-style: normal;
   font-weight: 400;
-  line-height: 22px; /* 137.5% */
   text-transform: uppercase;
 }
