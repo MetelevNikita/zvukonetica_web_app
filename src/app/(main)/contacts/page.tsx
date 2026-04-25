@@ -111,7 +111,7 @@ const page: FC = () => {
   if (!bannerUrl) {
     return (
 
-      <Container>
+      <Container className='mt-4'>
           <Row>
             <Col md={12} className='d-flex justify-content-center mb-5'>
                 <h3 style={{color: 'white', height: '100vh'}}>LOADING...</h3>
@@ -125,7 +125,7 @@ const page: FC = () => {
 
   return (
     
-    <Container>
+    <Container className='mt-4'>
 
       <Row className='mb-2'>
         <Col md={12} className='d-flex justify-content-center mb-5'>

@@ -157,7 +157,7 @@ const page: FC = () => {
       <Row className='mb-3'>
         <Col>
 
-          <div className={styles.well_title}>В программе курса</div>
+          <div className={styles.well_title}>Что вы получаете</div>
         
         </Col>
       </Row>

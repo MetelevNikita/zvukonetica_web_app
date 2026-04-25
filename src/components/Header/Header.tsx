@@ -161,9 +161,9 @@ const Header: FC = () => {
 
           <div className={styles.social_logo_container}>
 
-          {(social.length > 0) && social.map((logo: socialType): React.ReactNode => {
+          {(social.length > 0) && social.map((logo: socialType, index: number): React.ReactNode => {
             return <motion.div
-                      key={logo.id}
+                      key={index}
                       onClick={() => {
                         router.push(logo.link)
                       }}
@@ -205,8 +205,11 @@ const Header: FC = () => {
 
 
         {/* desctop */}
+        
+        <div className='d-none d-md-block'>
 
-        <Row className='d-flex justify-content-center mt-3 d-none d-md-block d-lg-none'>
+        <Row className='d-flex flex-row justify-content-around mt-3'>
+          
 
           {
             (menu.length > 0) && menu.map((item: menuType): React.ReactNode => {
@@ -223,6 +226,8 @@ const Header: FC = () => {
           }
 
         </Row>
+
+        </div>
 
 
         {/* mobile */}

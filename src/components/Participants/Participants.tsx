@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, useEffect, useState } from 'react'
+import { FC, Suspense, useEffect, useState } from 'react'
 import Image from 'next/image'
 
 // styles
@@ -63,7 +63,9 @@ const Participants: FC = () => {
 
 
       <Row>
-        <SwiperVideo video={video.data}/>
+        <Suspense fallback="loading...">
+            <SwiperVideo video={video.data}/>
+        </Suspense>
       </Row>
     </Container>
   

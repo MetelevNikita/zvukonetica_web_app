@@ -71,7 +71,7 @@ const page: FC = () => {
   if (!bannerUrl) {
     return (
 
-      <Container>
+      <Container className='mt-4'>
           <Row>
             <Col md={12} className='d-flex justify-content-center mb-5'>
                 <h3 style={{color: 'white', height: '100vh'}}>LOADING...</h3>
@@ -85,7 +85,7 @@ const page: FC = () => {
 
   return (
     
-    <Container>
+    <Container className='mt-4'>
 
       <Row className='mb-2'>
         <Col md={12} className='d-flex justify-content-center mb-5'>
@@ -115,7 +115,7 @@ const page: FC = () => {
       {
         programRules.map((item, index) => (
 
-            <Col md={4} className='d-flex justify-content-center' key={index}>
+            <Col md={4} className='d-flex justify-content-center mt-3 mb-3' key={index}>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 initial={{opacity: 0, y: 50}}
@@ -137,7 +137,7 @@ const page: FC = () => {
         
       }
 
-        <Col md={4} className='d-flex justify-content-center'>
+        <Col md={4} className='d-flex justify-content-center mt-3 mb-3'>
 
             <motion.div 
               className={styles.program_module_rules_container}

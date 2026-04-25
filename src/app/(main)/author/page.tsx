@@ -45,15 +45,19 @@ const page: FC = () => {
 
   if (!bannerUrl) {
     return (
-      <div>loading</div>
+      <Container className='mt-4'>
+          <Row>
+            <Col md={12} className='d-flex justify-content-center mb-5'>
+                <h3 style={{color: 'white', height: '100vh'}}>LOADING...</h3>
+            </Col>
+          </Row>
+      </Container>
     )
   }
 
-  console.log(bannerUrl)
-
 
   return (
-    <Container>
+    <Container className='mt-4'>
 
       <Row className='mb-5'>
         <Col md={12} className='d-flex justify-content-center mb-5'>
@@ -65,7 +69,7 @@ const page: FC = () => {
 
 
       <Row className='mt-5'>
-          <Col md={7} className='d-flex justify-content-start'>
+          <Col md={5} className='d-flex justify-content-start order-2 order-md-1'>
               <div>
                 <div style={{whiteSpace: 'pre-line'}} className={styles.author_title}>Автор методики</div>
 
@@ -87,10 +91,8 @@ const page: FC = () => {
           </Col>
 
 
-          <Col md={5} className='d-flex justify-content-end'>
-              <div className={styles.author_photo_bg}>
-                <Image className={styles.author_photo} width={472} height={454} src={photo} alt={'photo'} />
-              </div>
+          <Col md={7} className='d-flex justify-content-end order-1 order-md-2'>
+                <Image width={672} height={424} src={photo} alt={'photo'} />
           </Col>
 
       </Row>
