@@ -96,23 +96,17 @@ const Header: FC = () => {
       id: 1,
       label: 'В контакте',
       value: 'vk',
-      link: '',
+      link: 'https://vk.ru/club235259626',
       image: vk
     },
     {
       id: 2,
       label: 'Телеграм',
       value: 'tg',
-      link: '',
+      link: 'https://max.ru/join/JBTIpN9A35jkobkUNUH-iM2MZV5Qq_vygEsNJV_-zlY',
       image: tg
     },
-    {
-      id: 3,
-      label: 'Ютуб',
-      value: 'yt',
-      link: '',
-      image: yt
-    },
+
   ]
 
   const [menuActive, setMenuActive] = useState<Boolean>(false)
