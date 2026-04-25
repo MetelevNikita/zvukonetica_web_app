@@ -157,7 +157,9 @@ const Header: FC = () => {
           </Col>
 
 
-          <Col md={2} className='d-flex justify-content-around mt-4'>
+          <Col md={2} className='d-flex justify-content-md-end justify-content-start mt-4'>
+
+          <div className={styles.social_logo_container}>
 
           {(social.length > 0) && social.map((logo: socialType): React.ReactNode => {
             return <motion.div
@@ -175,6 +177,8 @@ const Header: FC = () => {
                           />
                     </motion.div>
           })}
+
+          </div>
 
           </Col>
 

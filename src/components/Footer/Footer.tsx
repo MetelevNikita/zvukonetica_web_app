@@ -76,10 +76,13 @@ const Footer: FC = () => {
             </motion.div>
           </Col>
 
-          <Col md={2} className='d-flex justify-content-around mt-4'>
+          <Col md={1} className='d-flex justify-content-center mt-4'>
+
+           <div className={styles.social_logo_container}>
 
           {(social.length > 0) && social.map((logo: socialType): React.ReactNode => {
             return <motion.div
+                      style={{marginLeft: '5px', marginRight: '5px'}}
                       key={logo.id}
                       onClick={() => {
                         router.push(logo.link)
@@ -94,6 +97,8 @@ const Footer: FC = () => {
                           />
                     </motion.div>
           })}
+
+          </div>
 
           </Col>
 
