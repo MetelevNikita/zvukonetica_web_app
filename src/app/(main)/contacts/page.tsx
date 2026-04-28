@@ -147,19 +147,19 @@ const page: FC = () => {
       </Row>
 
 
-      <Row className='d-flex justify-content-between mb-3'>
+      <Row className='d-flex justify-content-between'>
 
-        <Col md={6} xs={12}>
+        <Col md={6} xs={12} className='mt-2 mb-2'>
           <MyInput type={'text'} placeholder={'Имя'} name={'name'} value={comment.name} onChange={(e) => {setComment({...comment, name: e.target.value})}} />
         </Col>
 
-        <Col md={6} xs={12}>
+        <Col md={6} xs={12} className='mt-2 mb-2'>
           <MyInput type={'email'} placeholder={'Почта'} name={'email'} value={comment.email} onChange={(e) => {setComment({...comment, email: e.target.value})}} />
         </Col>
 
       </Row>
 
-      <Row className='d-flex justify-content-between mb-3'>
+      <Row className='d-flex justify-content-between mt-2 mb-2'>
         <Col>
           <MyTextArea name={'comment'} placeholder={'Комментарий'} value={comment.message} onChange={(e) => {setComment({...comment, message: e.target.value})}} />
         </Col>
@@ -172,7 +172,7 @@ const page: FC = () => {
         </Col>
 
 
-         <Col md={6} xs={12} className='d-flex justify-content-md-end justify-content-center'>
+         <Col md={6} xs={12} className='d-flex justify-content-md-end justify-content-center mt-4'>
           <MyButton text={'Отправить'} onClick={async () => {await sendCommentMessage(comment)}} />
          </Col>
 

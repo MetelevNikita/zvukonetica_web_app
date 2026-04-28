@@ -50,9 +50,7 @@ const Author: FC = () => {
 
 
         <Col md={6} className='d-flex justify-content-end mt-4 mb-4'>
-            <div className={styles.author_photo_bg}>
-              <Image className={styles.author_photo} width={472} height={454} src={photo} alt={'photo'} />
-            </div>
+              <Image width={472} height={454} src={photo} alt={'photo'} />
         </Col>
         
       </Row>

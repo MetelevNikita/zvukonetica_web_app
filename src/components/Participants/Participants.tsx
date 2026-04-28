@@ -61,12 +61,12 @@ const Participants: FC = () => {
         
       </Row>
 
-
+    {/* 
       <Row>
         <Suspense fallback="loading...">
             <SwiperVideo video={video.data}/>
         </Suspense>
-      </Row>
+      </Row> */}
     </Container>
   
 

@@ -81,7 +81,7 @@ const page: FC = () => {
 
   return (
     
-    <Container>
+    <Container className='mt-4'>
 
       <Row className='mb-2'>
         <Col md={12} className='d-flex justify-content-center mb-5'>
@@ -112,7 +112,7 @@ const page: FC = () => {
       </Row>
 
 
-      <Row className='mb-3'>
+      <Row className='mb-5'>
         <Col className='d-flex justify-content-center'>
 
           <p className={styles.well_steps_text} style={{ whiteSpace: 'pre-line' }}>{`Курс состоит из пяти ступеней (модулей), каждая из которых формирует новое качество внутреннего и внешнего звучания голоса, определяющего силу и величину поля личного влияния:`}</p>
@@ -122,9 +122,9 @@ const page: FC = () => {
 
       {/* well steps item  */}
 
-      <Row className='mb-5 d-flex justify-content-center mb-3'>
+      <Row className='mb-5 d-flex justify-content-center'>
         {stepsJson.map((item: {id: number, title: string}, index: number): React.ReactNode => {
-          return <Col key={item.id} md={4} className='mb-3'>
+          return <Col key={item.id} md={4} className='d-flex justify-content-center mb-3'>
                     <motion.div
            
                       animate={{opacity: 0, scale: 0.8}}

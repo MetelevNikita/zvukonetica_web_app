@@ -111,9 +111,6 @@ const Header: FC = () => {
 
   const [menuActive, setMenuActive] = useState<Boolean>(false)
 
-  console.log(menuActive)
-
-
 
   return (
 

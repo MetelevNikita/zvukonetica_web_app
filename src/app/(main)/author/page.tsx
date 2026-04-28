@@ -121,7 +121,7 @@ const page: FC = () => {
 
       <Row>
         <Col md={12}>
-          <div className={styles.author_price_text}>ГРАМОТЫ И БЛАГОДАРСТВЕННЫЕ ПИСЬМА</div>
+          <div className={styles.author_title}>ГРАМОТЫ И БЛАГОДАРСТВЕННЫЕ ПИСЬМА</div>
         </Col>
       </Row>
 
@@ -132,10 +132,9 @@ const page: FC = () => {
             if (index > 3) {
               return
             }
-            return <Col key={index} md={3} className='mb-5 mt-5'>
+            return <Col key={index} md={3} className='d-flex justify-content-center mb-5 mt-5'>
                       <div className={styles.diplom_wrapper}>
                         <img className={styles.diplom_image} src={item.image} alt="diploms" />
-                        {/* <Image  width={1500} height={500} src={item.image} alt={'diploms'}/> */}
                       </div>
                     </Col>
           }) 
