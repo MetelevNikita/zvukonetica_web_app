@@ -28,10 +28,6 @@ const SwiperVideo:FC<SwiperVideoProps> = ({video}) => {
   const [activeIndex, setActiveIndex] = useState(10);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
-
-  console.log(videoRefs)
-
-
   return (
    <div className={styles.container}>
       <Swiper

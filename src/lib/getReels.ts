@@ -18,7 +18,6 @@ export async function getReels (): Promise<{success: boolean, message: string, d
 
 
     const data = await responce.json()
-    console.log('DATA ', data)
 
     return {
         success: false,

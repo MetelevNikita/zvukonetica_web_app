@@ -29,16 +29,16 @@ const Participants: FC = () => {
   const [video, setVideo] = useState<any | null>(null)
 
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    async function getResultVideo () {
-      const video = await getReels()
-      setVideo(video.data)
-    }
+  //   async function getResultVideo () {
+  //     const video = await getReels()
+  //     setVideo(video.data)
+  //   }
 
-    getResultVideo()
+  //   getResultVideo()
 
-  }, [])
+  // }, [])
 
 
 

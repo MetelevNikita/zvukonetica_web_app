@@ -3,7 +3,6 @@
 import { FC, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { motion } from 'motion/react'
 
 // styles
 
@@ -37,7 +36,6 @@ const page: FC = () => {
   useEffect(() => {
     async function getBannerUrl () {
       const url = await getBanner()
-      console.log(url)
 
       if (!url) return 'Баннер не найден'
 
