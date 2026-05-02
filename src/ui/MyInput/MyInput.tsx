@@ -10,8 +10,8 @@ interface MyInputProps {
   name: string
   type: string
   placeholder: string
-  value: string
-  onChange: (e: any) => void
+  value: any
+  onChange: (e: any) => any
 }
 
 const MyInput: FC<MyInputProps> = ({title, name, type, placeholder, value, onChange }) => {
