@@ -16,9 +16,6 @@ export const GET = async () => {
   try {
 
     const allArticles = await prisma.articles.findMany()
-
-    console.log(allArticles)
-
     if (!allArticles) {
       return NextResponse.json({
         success: true,

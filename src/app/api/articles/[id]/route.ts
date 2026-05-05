@@ -16,8 +16,7 @@ import { prisma } from '@/lib/prisma'
 export const DELETE = async (req: NextRequest, context: {params: {id: string}}) => {
   try {
 
-    const {id} = context.params
-    console.log(id)
+    const {id} = await context.params
 
     const findArticle = await prisma.articles.findFirst({
       where: {

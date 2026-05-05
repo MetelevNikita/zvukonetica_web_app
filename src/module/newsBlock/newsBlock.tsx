@@ -9,6 +9,7 @@ import styles from './newsBlock.module.css'
 // bootstrap
 
 import { Container, Row, Col } from 'react-bootstrap'
+import { style } from 'motion/react-client'
 
 
 interface newsBlockProps {
@@ -18,7 +19,7 @@ interface newsBlockProps {
 }
 
 
-const newsBlock: FC<newsBlockProps> = ({ title, description, image }) => {
+const NewsBlock: FC<newsBlockProps> = ({ title, description, image }) => {
   const descriptionShort = description.split(' ').slice(0, 20).join(' ') + '...'
 
   return (
@@ -26,7 +27,7 @@ const newsBlock: FC<newsBlockProps> = ({ title, description, image }) => {
       <Row className='d-flex flex-column'>
         <Col md={12} className='d-flex justify-content-center'>
           <div className={styles.news_block_image_wrapper}>
-              <Image src={image} alt="News Image" width={500} height={300} />
+              <Image className={styles.news_block_image} src={image} alt="News Image" width={392} height={220} />
           </div>
         </Col>
 
@@ -48,4 +49,4 @@ const newsBlock: FC<newsBlockProps> = ({ title, description, image }) => {
   )
 }
 
-export default newsBlock
+export default NewsBlock

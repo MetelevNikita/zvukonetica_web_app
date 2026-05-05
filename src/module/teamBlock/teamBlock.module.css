@@ -1,6 +1,7 @@
 .team_block_image {
   width: 346.415px;
   height: 347.67px;
+  object-fit: cover
   ;
 
   /*  */

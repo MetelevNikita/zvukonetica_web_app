@@ -1,4 +1,5 @@
 import { NextResponse, NextRequest } from "next/server";
+import nodemailer from 'nodemailer'
 import fs from 'fs'
 import path from "path";
 
@@ -6,11 +7,17 @@ import path from "path";
 
 import { prisma } from '@/lib/prisma'
 
+// transport nodemailer
 
-
-
-//
-
+const transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.GMAIL_LOGIN as string,
+    pass: process.env.GMAIL_PASSWORD as string
+  }
+})
 
 const pathToFile = path.join(process.cwd(), 'src', 'json', 'comments.json')
 
@@ -21,10 +28,10 @@ export const GET = async () => {
 
     if (!comments) {
       return NextResponse.json({
-        success: false,
-        message: `База Комментариев пуста`,
-        data: comments
-    })
+          success: false,
+          message: `База Комментариев пуста`,
+          data: comments
+      })
     }
 
     return NextResponse.json({
@@ -60,9 +67,6 @@ export const GET = async () => {
 }
 
 
-
-
-
 export const POST = async (req: Request) => {
 
   try {
@@ -77,11 +81,28 @@ export const POST = async (req: Request) => {
       })
     }
 
-    console.log('MESSAGE ', body)
 
     await prisma.comment.create({
       data: body
     })
+
+    // mail
+
+    const readyToMail = await transporter.verify();
+    console.log(`Server is ready to take our messages - ${readyToMail}`);
+
+
+    await transporter.sendMail({
+      from: body.email,
+      to: "propaganda1108@gmail.com",
+      subject: "Сообщение с сайта zvukonetika.ru",
+      text: body.message,
+      html: `<h3>Сообщение от ${body.email}</h3><br/><p>${body.message}</p>`
+    })
+
+
+    // 
+
 
     return NextResponse.json({
         success: true,
@@ -94,7 +115,7 @@ export const POST = async (req: Request) => {
     
     if (error instanceof Error) {
 
-      console.error(`Оишкба получения новостей ${error.message}`)
+      console.error(`Оишкба отправки коментария ${error.message}`)
 
       return NextResponse.json({
         success: false,

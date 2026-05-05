@@ -56,7 +56,6 @@ const page: FC = () => {
   useEffect(() => {
     async function getBannerUrl () {
       const url = await getBanner()
-      console.log(url)
 
       if (!url) return 'Баннер не найден'
 
@@ -160,7 +159,7 @@ const page: FC = () => {
 
       {/*  */}
 
-      <Row className='mb-2'>
+      <Row className='mb-5'>
         <Col>
 
           <div className={styles.program_title}>Команда</div>

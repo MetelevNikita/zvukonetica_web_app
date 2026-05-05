@@ -49,7 +49,6 @@ const page: FC = () => {
   useEffect(() => {
     async function getBannerUrl () {
       const url = await getBanner()
-      console.log(url)
 
       if (!url) return 'Баннер не найден'
 
@@ -70,8 +69,6 @@ const page: FC = () => {
     getImage()
   }, [])
 
-
-  console.log(openImage)
 
 
 

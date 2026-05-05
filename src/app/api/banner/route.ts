@@ -63,9 +63,6 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
   try {
 
     const data = await req.formData()
-
-    console.log(data)
-
     const image = data.get('image') as File
 
     if (!image) {
