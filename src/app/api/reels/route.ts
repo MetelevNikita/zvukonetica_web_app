@@ -2,6 +2,13 @@ import { NextResponse } from "next/server";
 import { XMLParser } from 'fast-xml-parser';
 
 
+// 
+
+import { createPreviewImageReels } from "@/lib/createPreviewImageFromReels";
+
+// 
+
+
 
 export const GET = async () => {
   try {
@@ -39,9 +46,21 @@ export const GET = async () => {
      }).map((item: any) => `https://storage.yandexcloud.net/zvukonetica88/${item.Key}`)
 
 
+     const ArrayWithPreview = await Promise.all(list.map(async (item: string) => {
+      const preview = await createPreviewImageReels(item)
+
+      return {
+        preview: preview,
+        link: item
+      }
+     }))
+
+
+
+
       return NextResponse.json({
         message: 'DATA',
-        data: list
+        data: ArrayWithPreview
       })
 
     

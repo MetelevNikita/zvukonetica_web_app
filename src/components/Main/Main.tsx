@@ -2,7 +2,7 @@
 
 import { FC } from 'react'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
+
 
 // style
 
@@ -18,7 +18,6 @@ import MyButton from '@/ui/MyButton/MyButton'
 
 // image
 
-import boderImage from '@/../public/app/main_block/border.png'
 import image from '@/../public/app/main_block/image.png'
 import titleLogo from '@/../public/app/main_block/title_logo.svg'
 
@@ -31,11 +30,9 @@ import geo from '@/../public/app/icon/Location Pin.png'
 // types
 
 import type { infoType } from '@/types/types'
-import { div } from 'motion/react-client'
+
 
 const Main: FC = () => {
-
-
 
   const info: infoType[] = [
     {
@@ -72,7 +69,7 @@ const Main: FC = () => {
 
         </Row>
 
-        <MyButton text={'Хочу присоединиться'} onClick={() => {}} />
+        <MyButton text={'Хочу присоединиться'} onClick={() => {}} />
 
         <div className={styles.main_info_container}>
           {

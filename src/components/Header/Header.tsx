@@ -241,9 +241,9 @@ const Header: FC = () => {
                   <div className={styles.menu_mobile_wrapper}>
 
                       {
-                        menu.map((item) => {
+                        menu.map((item: {label: string, link: string}, index: number) => {
                           return (
-                            <Col>
+                            <Col key={index}>
                               <motion.div
                                 className={styles.menu_mobile_item}
                                 whileHover={{color: '#E1BF81'}}

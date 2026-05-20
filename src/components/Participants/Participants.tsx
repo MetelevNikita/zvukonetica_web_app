@@ -46,6 +46,8 @@ const Participants: FC = () => {
     <div>Loading</div>
   )
 
+  console.log(video)
+
 
   return (
 

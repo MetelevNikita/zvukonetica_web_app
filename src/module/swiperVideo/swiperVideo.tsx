@@ -1,4 +1,4 @@
-'use clietn'
+'use client'
 
 // 
 
@@ -23,6 +23,11 @@ interface SwiperVideoProps {
 }
 
 const SwiperVideo:FC<SwiperVideoProps> = ({video}) => {
+
+
+  console.log(video)
+
+
 
   const [activeMuted, setActiveMuted] = useState(0)
   const [activeIndex, setActiveIndex] = useState(10);
@@ -54,13 +59,15 @@ const SwiperVideo:FC<SwiperVideoProps> = ({video}) => {
         }
         className={styles.swiper}
       >
-        {video.map((item: string, index: number) => (
-          <SwiperSlide key={item} className={styles.swiperSlide}>
+        {video.map((item: {link: string, preview: string}, index: number) => (
+          
+          <SwiperSlide key={index} className={styles.swiperSlide}>
             <video
+              poster={item.preview}
               ref={el => {
                 videoRefs.current[index] = el;
               }}
-              src={item} 
+              src={item.link} 
               controls 
               className={styles.video}
               preload="metadata"

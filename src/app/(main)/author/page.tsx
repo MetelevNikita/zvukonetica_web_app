@@ -92,7 +92,7 @@ const page: FC = () => {
 
 
           <Col md={7} className='d-flex justify-content-end order-1 order-md-2'>
-                <Image width={672} height={424} src={photo} alt={'photo'} />
+                <Image src={photo} alt={'photo'} />
           </Col>
 
       </Row>
