@@ -15,8 +15,10 @@ export async function getBanner () {
     }
 
     const data = await response.json()
-    console.log(data)
-    return data.data[0].image
+    const last = data.data.at(-1);
+
+    console.log(last)
+    return last.image
     
   } catch (error: Error | unknown) {
 
