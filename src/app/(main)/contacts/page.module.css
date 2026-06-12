@@ -14,3 +14,25 @@
   letter-spacing: 2.25px;
   text-transform: uppercase;
 }
+
+.contacts_phone_text {
+  color: #ffffff;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 25px;
+  font-variant: small-caps;
+  letter-spacing: 0.9px;
+}
+
+
+.contacts_phone_number {
+  color: #E8CE99;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  font-variant: small-caps;
+  letter-spacing: 0.9px;
+}
+ 

@@ -145,6 +145,16 @@ const page: FC = () => {
       </Row>
 
 
+      <Row>
+        <Col md={12} className='mb-4'>
+
+          <div className={styles.contacts_phone_text}> По всем вопросам звонить и писать:  <a className={styles.contacts_phone_number} href="tel:+79273048829">+7 927 304 88 29</a></div>
+
+        
+        </Col>
+      </Row>
+
+
       <Row className='d-flex justify-content-between'>
 
         <Col md={6} xs={12} className='mt-2 mb-2'>
