@@ -1,4 +1,6 @@
-.input_container {}
+.input_container {
+  width: 100%;
+}
 
 .input_title {
     color: #FFF;

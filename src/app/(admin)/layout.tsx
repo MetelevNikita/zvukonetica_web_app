@@ -11,7 +11,7 @@ export default function MainLayout({
   children: React.ReactNode;
 }>) {
   return (
-          <Container fluid style={{padding: 0}}>
+          <Container style={{padding: 0}}>
                   {children}
           </Container>
   );
