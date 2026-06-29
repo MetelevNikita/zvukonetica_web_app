@@ -98,7 +98,7 @@ const Main: FC = () => {
 
 
 
-        <Col className={'d-flex justify-content-center'}  md={6}>
+        <Col className={'d-flex justify-content-center mt-2'}  md={6}>
         
             <Image width={402} height={488} src={image} alt={'image'}/>
           
