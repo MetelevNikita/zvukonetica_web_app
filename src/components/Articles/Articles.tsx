@@ -79,7 +79,7 @@ const Articles: FC = () => {
         <Col className='d-flex justify-content-center'>
 
           <MyButton text={'Показать все'} onClick={() => {
-            router.push('/articles/all')
+            router.push('/article')
           }} />
         
         </Col>
