@@ -44,11 +44,11 @@ const Main: FC = () => {
       icon: clock
     },
 
-    {
-      id: 2,
-      title: 'Город Москва',
-      icon: geo
-    },
+    // {
+    //   id: 2,
+    //   title: 'Город Москва',
+    //   icon: geo
+    // },
   ]
 
 
