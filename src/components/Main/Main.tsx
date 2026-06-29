@@ -2,6 +2,7 @@
 
 import { FC } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 
 // style
@@ -34,10 +35,12 @@ import type { infoType } from '@/types/types'
 
 const Main: FC = () => {
 
+  const router = useRouter()
+
   const info: infoType[] = [
     {
       id: 1,
-      title: 'СТАРТ КУРСА 22-24 мая 2026 г.',
+      title: 'Идет набор новой группы',
       icon: clock
     },
 
@@ -69,7 +72,12 @@ const Main: FC = () => {
 
         </Row>
 
-        <MyButton text={'Хочу присоединиться'} onClick={() => {}} />
+        <MyButton 
+          text={'Хочу присоединиться'}
+          onClick={() => {
+            router.push('/contacts')
+          }} 
+        />
 
         <div className={styles.main_info_container}>
           {

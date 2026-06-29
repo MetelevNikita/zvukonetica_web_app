@@ -70,10 +70,10 @@ const page: FC = () => {
   if (!bannerUrl) {
     return (
 
-      <Container className='mt-4'>
+      <Container>
           <Row>
             <Col md={12} className='d-flex justify-content-center mb-5'>
-                <h3 style={{color: 'white', height: '100vh'}}>LOADING...</h3>
+                <h3 style={{color: 'white', height: '100vh'}}>Загрузка...</h3>
             </Col>
           </Row>
       </Container>

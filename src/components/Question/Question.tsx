@@ -34,7 +34,12 @@ const Question: FC = () => {
           <div className={styles.question_title}>Eсли остались вопросы</div>
           <div className={styles.question_subtitle}>Мы с радостью ответим на ваши вопросы и отправим программу мероприятия вам на почту.</div>
 
-          <MyButton text={'Написать'} onClick={() => {}} />
+          <MyButton
+            text={'Написать'}
+            onClick={() => {
+              router.push('/contacts')
+            }}
+          />
         
         </Col>
 

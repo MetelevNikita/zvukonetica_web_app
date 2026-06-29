@@ -37,7 +37,11 @@ const Articles: FC = () => {
         const articles = await getNews()
   
         if (!articles.success) return []
-        setArticles(articles.data)
+
+
+        console.log('articles', articles.data)
+
+        setArticles(articles.data.reverse().slice(0, 3))
       }
   
   

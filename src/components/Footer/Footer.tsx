@@ -17,7 +17,6 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 import vk from '@/../public/app/social_logo/vk.png'
 import tg from '@/../public/app/social_logo/tg.png'
-import yt from '@/../public/app/social_logo/yt.png'
 
 // logo
 

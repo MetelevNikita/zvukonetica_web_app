@@ -24,11 +24,6 @@ interface SwiperVideoProps {
 
 const SwiperVideo:FC<SwiperVideoProps> = ({video}) => {
 
-
-  console.log(video)
-
-
-
   const [activeMuted, setActiveMuted] = useState(0)
   const [activeIndex, setActiveIndex] = useState(10);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
