@@ -16,6 +16,11 @@ export async function proxy (request: NextRequest) {
     const isAuthRoute = pathName === '/admin/auth'
 
 
+    if (!isAdminRoute) {
+      return NextResponse.next();
+    }
+
+
 
     if (isAdminRoute && !isAuthRoute && !token) {
         return NextResponse.redirect(new URL('/admin/auth', request.url))
@@ -55,7 +60,5 @@ export async function proxy (request: NextRequest) {
 
 
 export const config = {
-  matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)'
-  ],
-}
+  matcher: ["/admin/:path*"],
+};
