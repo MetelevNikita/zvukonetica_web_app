@@ -94,7 +94,7 @@ export const POST = async (req: Request) => {
 
     await transporter.sendMail({
       from: body.email,
-      to: "propaganda1108@gmail.com",
+      to: "ifilippovanina@gmail.com",
       subject: "Сообщение с сайта zvukonetika.ru",
       text: body.message,
       html: `<h3>Сообщение от ${body.email}</h3><br/><p>${body.message}</p>`
@@ -119,7 +119,7 @@ export const POST = async (req: Request) => {
 
       return NextResponse.json({
         success: false,
-        message: `Оишкба получения новостей ${error.message}`,
+        message: `Ошибка отправки комментария ${error.message}`,
         data: null
       })
     }
