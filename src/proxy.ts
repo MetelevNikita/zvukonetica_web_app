@@ -29,7 +29,10 @@ export async function proxy (request: NextRequest) {
       
       const varifyToken = await jwtVerify(token, secret)
       if (varifyToken.payload.role !== 'admin') {
-        return NextResponse.redirect(new URL("/admin/auth", request.url));
+          if (isAuthRoute) {
+            return NextResponse.next();
+          }
+          return NextResponse.redirect(new URL("/admin/auth", request.url));
       }
 
       if (isAuthRoute && varifyToken.payload.role === "admin") {
@@ -40,7 +43,11 @@ export async function proxy (request: NextRequest) {
       return NextResponse.next()
 
     } catch (error) {
-      console.log("Invalid token", error);
+
+      if (isAuthRoute) {
+        return NextResponse.next();
+      }
+
       return NextResponse.redirect(new URL("/admin/auth", request.url));
     }
 
