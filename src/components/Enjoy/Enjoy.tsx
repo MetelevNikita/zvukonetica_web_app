@@ -30,7 +30,7 @@ const Enjoy: FC = () => {
             </Col>
             
             <Col md={4} className='d-flex align-items-center justify-content-center'>
-              <MyButton text={'Присоеденяйтесь'} onClick={() => {}} />
+              <MyButton text={'Присоединяйтесь'} onClick={() => {}} />
             </Col>
             
           </Row>
