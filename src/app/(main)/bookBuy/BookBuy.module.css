@@ -1,0 +1,167 @@
+.book_buy {
+  color: #F5F2EB;
+  font-family: var(--font-geist-mono), Montserrat, sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  width: calc(100% - 48px);
+  max-width: 1120px;
+  padding: 110px 0 99px;
+}
+
+.row {
+  align-items: center;
+  gap: 80px;
+}
+
+.artwork {
+  position: relative;
+  width: 480px;
+  height: 560px;
+  flex-shrink: 0;
+}
+
+.ring_outer, .ring_inner, .ring_ellipse {
+  position: absolute;
+  max-width: none;
+  pointer-events: none;
+}
+
+.ring_outer { left: -36px; top: 4px; }
+.ring_inner { left: 4px; top: 44px; }
+.ring_ellipse { left: -10px; top: 90px; }
+
+.cover {
+  position: absolute;
+  left: 90.785px;
+  top: 69.863px;
+  width: 300px;
+  height: 420px;
+  overflow: hidden;
+  border-radius: 4px 10px 10px 4px;
+  background: radial-gradient(ellipse, #7A3219 0%, #581F0E 50%, #350C02 100%);
+  box-shadow: 30px 40px 70px rgba(0, 0, 0, 0.55);
+  transform: rotate(-3deg);
+}
+
+.image {
+  position: absolute;
+  left: -14.094px;
+  top: -49.416px;
+  width: 346.728px;
+  height: 467.515px;
+  max-width: none;
+  object-fit: cover;
+  transform: rotate(-0.09deg);
+}
+
+.spine {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 14px;
+  border-right: 2px solid rgba(255, 221, 152, 0.14);
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  width: 560px;
+  max-width: 100%;
+}
+
+.content p, .title { margin: 0; }
+
+.label {
+  color: #FFDD98;
+  font-size: 13px;
+  line-height: normal;
+  letter-spacing: 1.82px;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: Forum, serif;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.quote {
+  font-family: "Cormorant Infant", serif;
+  font-size: 30px;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.description {
+  max-width: 540px;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.features {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-block: 1px solid rgba(245, 242, 235, 0.25);
+  list-style: none;
+  font-size: 15px;
+  line-height: normal;
+}
+
+.features li {
+  flex: 1;
+  padding: 18px 0 18px 24px;
+  border-left: 1px solid rgba(245, 242, 235, 0.25);
+}
+
+.price {
+  color: #F2E9D6;
+  font-size: 45px;
+  line-height: normal;
+}
+
+.button {
+  width: 100%;
+  min-height: 55px;
+  padding: 12px 36px;
+  border: 0;
+  border-radius: 100px;
+  background: #FFDD98;
+  color: #360D03;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.button:focus-visible {
+  outline: 2px solid #F5F2EB;
+  outline-offset: 5px;
+}
+
+@media (max-width: 1199px) {
+  .row { flex-direction: column; gap: 32px; }
+  .container { padding-block: 64px; }
+}
+
+@media (max-width: 575px) {
+  .artwork {
+    width: 288px;
+    height: 336px;
+  }
+
+  .ring_outer, .ring_inner, .ring_ellipse, .cover {
+    zoom: 0.6;
+  }
+
+  .title { font-size: 36px; }
+  .quote { font-size: 26px; }
+  .features li { padding: 18px 12px; }
+}

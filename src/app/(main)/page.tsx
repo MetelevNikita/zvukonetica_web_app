@@ -17,6 +17,8 @@ import Receive from '@/components/Receive/Receive'
 import Author from '@/components/Author/Author'
 import Enjoy from '@/components/Enjoy/Enjoy'
 import Articles from '@/components/Articles/Articles'
+import BookPromo from './bookPromo/BookPromo'
+import BookBuy from './bookBuy/BookBuy'
 
 
 // 
@@ -35,6 +37,14 @@ const page: FC = () => {
       <Row>
         <Col>
           <Participants />
+        </Col>
+      </Row>
+
+      <Row>
+        <Col>
+
+          <BookPromo />
+
         </Col>
       </Row>
 
@@ -69,6 +79,12 @@ const page: FC = () => {
       </Row>
 
 
+
+      <Row>
+        <Col>
+          <BookBuy />
+        </Col>
+      </Row>
 
       {/* Enjoy */}
 
