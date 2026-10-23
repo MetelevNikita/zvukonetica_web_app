@@ -118,11 +118,11 @@ const Footer: FC = () => {
 
         </Row>
 
-        <Row className='d-flex flex-row justify-content-center align-items-center wv-100 mt-4 mb-3'>
+        {/* <Row className='d-flex flex-row justify-content-center align-items-center wv-100 mt-4 mb-3'>
           <Col className='d-flex flex-row justify-content-center'>
               <motion.div className={styles.footer_line}></motion.div>
           </Col>
-        </Row>
+        </Row> */}
 
 
       </Container>
