@@ -60,11 +60,10 @@ const Footer: FC = () => {
     <div style={{width: '100%', height: '100%', background: '#280101'}} className={'mt-3'} >
 
       <Container>
-        <Row className='d-flex flex-row justify-content-center align-items-center wv-100'>
+        <Row className='align-items-start gy-4'>
 
-          <Col md={8} className='d-flex justify-content-start mt-4'>
+          <Col md={7} lg={8} className='d-flex flex-column mt-4'>
             <motion.div
-              initial={{x: 0}} animate={{x: -10}} transition={{duration: 3}}
               className={styles.logo_container}>
                   <Image
                     width={299}
@@ -73,41 +72,48 @@ const Footer: FC = () => {
                     alt={'logo'}
                   />
             </motion.div>
+
+
+
+            <div className={styles.info_pay}>
+              Филиппова Нина Мироновна<br/>
+              ИНН 027720805974<br/>
+              ОГРН 317028000132275<br/>
+              ifilippovanina@gmail.com<br/>
+            </div>
           </Col>
 
-          <Col md={1} className='d-flex justify-content-center mt-4'>
 
-           <div className={styles.social_logo_container}>
-
-          {(social.length > 0) && social.map((logo: socialType): React.ReactNode => {
-            return <motion.div
-                      style={{marginLeft: '5px', marginRight: '5px'}}
-                      key={logo.id}
-                      onClick={() => {
-                        router.push(logo.link)
-                      }}
-                      whileHover={{scale: 1.1}}
-                      >
-                          <Image
-                            width={39}
-                            height={39}
-                            src={logo.image}
-                            alt={'social_logo'}
-                          />
-                    </motion.div>
-          })}
-
-          </div>
-
-          </Col>
-
-          <Col md={2} className='d-flex justify-content-md-end justify-content-center mt-4'>
+          <Col md={5} lg={4} className='mt-4'>
+            <div className={styles.actions}>
+              <div className={styles.social_logo_container}>
+                {social.map((item) => (
+                  <motion.a
+                    key={item.id}
+                    href={item.link}
+                    aria-label={item.label}
+                    whileHover={{scale: 1.1}}
+                  >
+                    <Image
+                      width={39}
+                      height={39}
+                      src={item.image}
+                      alt={item.label}
+                    />
+                  </motion.a>
+                ))}
+              </div>
               <MyButton
                 text={'Написать'}
-                onClick={() => {
-                  router.push('/contacts')
-                }}
+                onClick={() => router.push('/contacts')}
               />
+            </div>
+
+            <div className={styles.legal_links}>
+              <div>Политика конфиденциальности</div>
+              <div>Договор оферты</div>
+              <div>Пользовательское соглашение</div>
+            </div>
           </Col>
 
         </Row>
@@ -117,13 +123,6 @@ const Footer: FC = () => {
               <motion.div className={styles.footer_line}></motion.div>
           </Col>
         </Row>
-
-        <Row className='d-flex flex-row justify-content-center align-items-center wv-100 mt-4'>
-          <Col className='d-flex flex-row justify-content-center mb-4'>
-                <div className={styles.footer_text}>Согласие на обработку персональных данных</div>
-          </Col>
-        </Row>
-
 
 
       </Container>
