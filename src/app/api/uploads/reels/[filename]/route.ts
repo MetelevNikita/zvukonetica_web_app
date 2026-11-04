@@ -15,7 +15,6 @@ export const GET = async (req: NextRequest, { params }: {params: Promise<{filena
     const { filename } = await params
 
     const filePath = path.join(process.cwd(), 'src', 'app', 'uploads', 'reels', filename)
-    console.log(filePath)
 
 
 

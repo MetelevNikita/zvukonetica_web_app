@@ -19,7 +19,6 @@ interface MyFileProps {
 
 const MyFile: FC<MyFileProps> = ({ data, onChange, name }) => {
 
-  console.log('Данные в MyFile:', data)
 
   useEffect(() => {
       setFileUrl(data.image ? URL.createObjectURL(data.image) : null)
@@ -37,10 +36,8 @@ const MyFile: FC<MyFileProps> = ({ data, onChange, name }) => {
     setFileUrl(null)
 
 
-    console.log(data) // Проверяем, что файл удалён
 
     // Логика удаления файла
-    console.log('Удалить файл')
   }
 
   return (

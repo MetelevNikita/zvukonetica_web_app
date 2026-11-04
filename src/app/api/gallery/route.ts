@@ -65,7 +65,7 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
       })
 
   } catch (error) {
-    console.log('ERROR GALLERY', error)
+    console.error('ERROR GALLERY', error)
     return error
   }
 }

@@ -75,7 +75,6 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
 
 
     const uploadImageHandler = await uploadImage(image, `banner_${Date.now()}`, 'banner', 1120)
-    console.log(uploadImageHandler)
 
 
     if (!uploadImageHandler?.success) {
@@ -93,7 +92,6 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
       }
     })
 
-    console.log(`Баннер успешно добавлен: ${newBanner.id}`)
 
     return NextResponse.json({
       success: true,

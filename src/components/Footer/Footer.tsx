@@ -1,6 +1,6 @@
 'use client'
 
-import { FC } from 'react'
+import React, { FC } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { motion } from "motion/react"
@@ -29,6 +29,7 @@ import MyButton from '@/ui/MyButton/MyButton'
 // types
 
 import { socialType } from '@/types/types'
+import { div } from 'motion/react-client'
 
 // 
 
@@ -53,6 +54,32 @@ const Footer: FC = () => {
       image: tg
     }
   ]
+
+
+  const docsTitle: {id: number, label: string, value: string, src: string}[] = [
+    {
+      id: 1,
+      label: 'Политика конфиденциальности',
+      value: 'politic',
+      src: '/docs/политика конфиденциальности.pdf'
+    },
+
+    {
+      id: 2,
+      label: 'Договор оферты',
+      value: 'offer',
+      src: '/docs/договор публичной оферты.pdf'
+    },
+
+    {
+      id: 3,
+      label: 'Пользовательское соглашение',
+      value: 'agreement',
+      src: '/docs/Пользовательское соглашение.pdf'
+    }
+  ]
+
+
 
 
 
@@ -110,9 +137,15 @@ const Footer: FC = () => {
             </div>
 
             <div className={styles.legal_links}>
-              <div>Политика конфиденциальности</div>
-              <div>Договор оферты</div>
-              <div>Пользовательское соглашение</div>
+                {
+                  docsTitle && docsTitle.map((item: {id: number, label: string, value: string, src: string}): React.ReactNode => {
+                    return (
+                      
+                      <a key={item.id} className={styles.legal_links_title} href={item.src} target='_blank'>{item.label}</a>
+  
+                    )
+                  })
+                }
             </div>
           </Col>
 

@@ -100,7 +100,9 @@ const Main: FC = () => {
 
         <Col className={'d-flex justify-content-center mt-2'}  md={6}>
         
-            <Image width={402} height={488} src={image} alt={'image'}/>
+            <div style={{ width: '402px', maxWidth: '100%' }}>
+              <Image src={image} alt={'image'} style={{ width: '100%', height: 'auto' }} />
+            </div>
           
         </Col>
 

@@ -6,7 +6,6 @@ export async function deleteFile (pathToFile: string): Promise<{success: boolean
   try {
 
     const arch = os.arch()
-    console.log(arch)
 
     const pathParse = path.parse(pathToFile)
  
@@ -17,7 +16,6 @@ export async function deleteFile (pathToFile: string): Promise<{success: boolean
 
     const pathFromDelete = path.resolve(process.cwd(), 'src', 'app', pathToFolder)
 
-    console.log(pathFromDelete)
 
     if (!fs.existsSync(pathFromDelete)) {
       return {
@@ -28,7 +26,6 @@ export async function deleteFile (pathToFile: string): Promise<{success: boolean
     }
 
     fs.rmSync(pathFromDelete, {recursive: true, force: true})
-    console.log('Файл удален')
 
     return {
       success: true,

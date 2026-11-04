@@ -1,7 +1,6 @@
 export async function postComment (comment: {name: string, email: string, message: string, politic: boolean}): Promise<any> {
   try {
 
-    console.log(comment)
 
     const responce = await fetch('/api/comment', {
       method: 'POST',
@@ -16,7 +15,6 @@ export async function postComment (comment: {name: string, email: string, messag
     }
 
     const data = await responce.json()
-    console.log(data)
     return data
     
   } catch (error: Error | unknown) {

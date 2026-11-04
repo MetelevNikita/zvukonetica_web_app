@@ -28,7 +28,7 @@ export const GET = async (request: Request, { params }: { params: Promise<{categ
         })
     
   } catch (error) {
-    console.log(error)
+    console.error(error)
     return NextResponse.json({ error: 'Error fetching file' }, { status: 500 })
   }
 }

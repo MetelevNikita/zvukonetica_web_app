@@ -50,7 +50,6 @@ const page: FC = () => {
   useEffect(() => {
     async function getBannerUrl () {
       const url = await getBanner()
-      console.log('banner url:', url)
       if (!url) return 'Баннер не найден'
 
       setBannerUrl(url)

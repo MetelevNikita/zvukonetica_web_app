@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import {FC} from 'react'
 import Image from 'next/image'
 import { Container, Row, Col } from 'react-bootstrap'
 import { motion } from 'motion/react'
@@ -13,13 +13,21 @@ import styles from './BookBuy.module.css'
 
 import book from '@/../public/app/book_buy/book_cover.png'
 
-const BookBuy = () => {
+// 
 
+interface BookBuyInterface {
+  payment: any
+}
+
+const BookBuy: FC<BookBuyInterface> = ({ payment }) => {
+
+
+
+const { setPaymentState } = payment
 
 
 function buyBookHandler () {
-  console.log('BuyBook')
-  alert('Страница находится в разработке')
+  setPaymentState((prev: boolean) => !prev)
 }
 
 

@@ -33,7 +33,6 @@ export const DELETE = async (req: NextRequest, context: {params: {id: string}}) 
 
 
     const deleteFileHandler = await deleteFile(findArticle.image)
-    console.log(deleteFileHandler)
 
     await prisma.articles.delete({
       where: {

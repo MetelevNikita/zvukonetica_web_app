@@ -89,7 +89,6 @@ export const POST = async (req: Request) => {
     // mail
 
     const readyToMail = await transporter.verify();
-    console.log(`Server is ready to take our messages - ${readyToMail}`);
 
 
     await transporter.sendMail({

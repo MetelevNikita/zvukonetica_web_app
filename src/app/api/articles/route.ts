@@ -71,7 +71,6 @@ export const POST = async (req: NextRequest) => {
 
 
     const imageUploadResult = await uploadImage(image, `article_${Date.now()}`, 'articles', 360)
-    console.log('Результат загрузки изображения:', imageUploadResult)
 
     if (!imageUploadResult?.success) {
       return NextResponse.json({
@@ -89,7 +88,6 @@ export const POST = async (req: NextRequest) => {
       }
     })
 
-    console.log(`Новость успешно создана: ${newArticle.id}`)
 
     return NextResponse.json({
       success: true,

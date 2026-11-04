@@ -37,7 +37,6 @@ const OpenArticle: FC<OpenArticleProps> = ({ article }) => {
   useEffect(() => {
     const fetchBanner = async () => {
       const url = await getBanner()
-      console.log(url)
       if (url) {
         setBannerUrl(url)
       }

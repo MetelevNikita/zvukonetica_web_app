@@ -16,11 +16,17 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 import book from '@/../public/app/book_promo/book_cover.png'
 
-const BookPromo: FC = () => {
+interface BookPromoInterface {
+  payment: any
+}
+
+const BookPromo: FC<BookPromoInterface> = ({ payment }) => {
+
+
+  const { setPaymentState } = payment
 
   function buyBookHandler () {
-    console.log('BuyBook')
-    alert('Страница находится в разработке')
+    setPaymentState((prev: boolean) => !prev)
   }
 
 

@@ -39,7 +39,6 @@ const Articles: FC = () => {
         if (!articles.success) return []
 
 
-        console.log('articles', articles.data)
 
         setArticles(articles.data.reverse().slice(0, 3))
       }

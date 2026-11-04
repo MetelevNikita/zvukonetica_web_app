@@ -60,7 +60,6 @@ const page: FC = () => {
       const formData = new FormData()
       formData.append('image', banner.image)
 
-      console.log('Данные для отправки:', ...formData)
 
       const response = await fetch('/api/banner', {
         method: 'POST',
@@ -68,7 +67,6 @@ const page: FC = () => {
       })
 
       const data = await response.json()
-      console.log('Ответ от сервера:', data)
       alert('Баннер успешно сохранен')
       router.refresh()
 
@@ -112,7 +110,6 @@ const page: FC = () => {
       })
 
       const data = await response.json()
-      console.log('Ответ от сервера:', data)
       alert('Новость успешно создана')
       window.location.reload()
 

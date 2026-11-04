@@ -21,17 +21,12 @@ export async function createPreviewImageReels (input: string) {
                 const createPreview = spawn('ffmpeg', ['-i', `https://storage.yandexcloud.net/zvukonetica88/reels/${parseFile.base}`, '-ss', '00:00:00.100', '-vframes', '1', path.join(endFolder, `${parseFile.name}.jpg`)])
 
 
-                createPreview.stdout.on('data', (data) => {
-                    console.log(`stdout: ${data}`);
-                });
+                createPreview.stdout.resume();
 
                 createPreview.stderr.on('data', (data) => {
                     console.error(`stderr: ${data}`);
                 });
 
-                createPreview.on('close', (code) => {
-                    console.log(`child process exited with code ${code}`);
-                });
 
 
                 return `/api/uploads/preview/${parseFile.name}.jpg`
@@ -39,7 +34,7 @@ export async function createPreviewImageReels (input: string) {
 
         
     } catch (error) {
-        console.log('ERROR ', error)
+        console.error('ERROR ', error)
         
     }
 

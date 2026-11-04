@@ -1,4 +1,6 @@
-import { FC } from 'react'
+'use client'
+
+import { FC, useState } from 'react'
 
 // style
 
@@ -19,14 +21,27 @@ import Enjoy from '@/components/Enjoy/Enjoy'
 import Articles from '@/components/Articles/Articles'
 import BookPromo from './bookPromo/BookPromo'
 import BookBuy from './bookBuy/BookBuy'
+import Payment from '@/module/payment/Payment'
 
 
 // 
 
 
 const page: FC = () => {
+
+
+  const [paymentState, setPaymentState] = useState<boolean>(false)
+
+
   return (
     <Container className='mt-5' fluid>
+
+
+      {
+        paymentState && (
+          <Payment payment={{setPaymentState}}/>
+        )
+      }
 
       <Row className='mt-4 mb-4'>
         <Col>
@@ -43,7 +58,7 @@ const page: FC = () => {
       <Row>
         <Col>
 
-          <BookPromo />
+          <BookPromo payment={{setPaymentState}}/>
 
         </Col>
       </Row>
@@ -82,7 +97,7 @@ const page: FC = () => {
 
       <Row>
         <Col>
-          <BookBuy />
+          <BookBuy payment={{setPaymentState}}/>
         </Col>
       </Row>
 

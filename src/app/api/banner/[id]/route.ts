@@ -12,7 +12,6 @@ export const DELETE = async (req: NextRequest, context: {params: {id: string}}) 
   try {
 
     const {id} = await context.params
-    console.log(id)
 
     const findBanner = await prisma.banner.findFirst({
       where: {
@@ -30,7 +29,6 @@ export const DELETE = async (req: NextRequest, context: {params: {id: string}}) 
 
 
     const deleteFileHandler = await deleteFile(findBanner.image)
-    console.log(deleteFileHandler)
 
     await prisma.banner.delete({
       where: {
