@@ -65,7 +65,7 @@ const SwiperVideo:FC<SwiperVideoProps> = ({video}) => {
               src={item.link} 
               controls 
               className={styles.video}
-              preload="metadata"
+              preload="none"
               muted
               
             />
