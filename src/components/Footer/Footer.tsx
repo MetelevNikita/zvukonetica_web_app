@@ -84,7 +84,7 @@ const Footer: FC = () => {
 
 
   return (
-    <div style={{width: '100%', height: '100%', background: '#280101'}} className={'mt-3'} >
+    <div style={{width: '100%', height: '100%', background: '#280101'}} className={'mt-5'} >
 
       <Container>
         <Row className='align-items-start gy-4'>
