@@ -75,7 +75,7 @@ const Payment: FC<PaymentInterface> = ({ payment }) => {
               <div className="ym-product">
                       <div className="ym-product-line">
                           <span className="ym-product-description">Книга автора методики  Звуконетика — в вашей библиотеке</span>
-                          <span className="ym-product-price" data-price="10" data-id="93" data-count="1">10,00&nbsp;₽</span>
+                          <span className="ym-product-price" data-price="35000" data-id="93" data-count="1">35,000&nbsp;₽</span>
                       </div>
                       <div className="ym-product-line ym-align-items-center">
                           <span className="ym-label-text">Количество</span>
@@ -106,7 +106,12 @@ const Payment: FC<PaymentInterface> = ({ payment }) => {
                   <input name="cps_phone" className="ym-input" placeholder="Телефон" type="text" />
                   <input name="custName" className="ym-input" placeholder="ФИО" type="text" />
                   
-                  
+                  <p style={{
+                    marginTop: '10px',
+                    fontSize: '13px',
+                  }}>В комментарии укажите как вам удобно забрать книгу
+                  <br />
+                  <b> (на мероприятии или доставкой). </b> </p>
                   <textarea className="ym-textarea" name="orderDetails" placeholder="Комментарий" />
               </div>
 

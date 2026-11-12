@@ -74,7 +74,6 @@ function buyBookHandler () {
             <p className={styles.label}>Книга автора методики</p>
             <h2 id='book-buy-title' className={styles.title}>Звуконетика —<br />в вашей библиотеке</h2>
             <p className={styles.quote}>«Ваш голос оставляет отпечаток. Вопрос только — какой именно вы хотите оставить?»</p>
-            <p className={styles.description}>[Короткое описание книги: о чём она, кому поможет и как связана с курсом. 2–3 предложения.]</p>
             <ul className={styles.features}>
               <li>Твёрдый переплёт</li>
               <li>Доставка по России</li>
