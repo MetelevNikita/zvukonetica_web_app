@@ -75,7 +75,7 @@ const Payment: FC<PaymentInterface> = ({ payment }) => {
               <div className="ym-product">
                       <div className="ym-product-line">
                           <span className="ym-product-description">Книга автора методики  Звуконетика — в вашей библиотеке</span>
-                          <span className="ym-product-price" data-price="35000" data-id="93" data-count="1">35,000&nbsp;₽</span>
+                          <span className="ym-product-price" data-price="3500" data-id="93" data-count="1">3 500&nbsp;₽</span>
                       </div>
                       <div className="ym-product-line ym-align-items-center">
                           <span className="ym-label-text">Количество</span>
